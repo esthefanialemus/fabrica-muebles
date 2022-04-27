@@ -1,4 +1,4 @@
-package com.ceiba.usuario.modelo.entidad;
+package com.ceiba.usuario.producto.modelo.entidad;
 
 import com.ceiba.usuario.modelo.util.EnumNumeroPuesto;
 import com.ceiba.usuario.modelo.util.EnumTipoComedor;
