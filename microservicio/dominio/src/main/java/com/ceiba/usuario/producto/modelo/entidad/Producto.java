@@ -1,26 +1,26 @@
 package com.ceiba.usuario.producto.modelo.entidad;
 
-import com.ceiba.usuario.modelo.util.EnumNumeroPuesto;
-import com.ceiba.usuario.modelo.util.EnumTipoComedor;
 import lombok.Getter;
 
 @Getter
 public class Producto {
     private Long id;
-    private EnumNumeroPuesto enumNumeroPuesto;
+    private Double valor;
+    private String numeroPuesto;
 
-    private EnumTipoComedor enumTipoComedor;
-
-
-    private Long valor;
+    private String tipoComedor;
 
 
-    public Producto(Long id, EnumNumeroPuesto enumNumeroPuesto, Long valor, EnumTipoComedor enumTipoComedor) {
+
+
+
+    public Producto(Long id, Double valor, String numeroPuesto, String tipoComedor) {
 
         this.id = id;
-        this.enumNumeroPuesto = enumNumeroPuesto;
-        this.enumTipoComedor= enumTipoComedor;
         this.valor = valor;
+        this.numeroPuesto = numeroPuesto;
+        this.tipoComedor = tipoComedor;
+
 
 
     }
