@@ -25,7 +25,8 @@ repositories {
 }
 
 dependencies {
-	testImplementation project.ext.mockitocore
+	implementation 'junit:junit:4.13.1'
+    testImplementation project.ext.mockitocore
 	testImplementation project.ext.mockitoinline
 	testImplementation project.ext.mockitojupiter
 	testImplementation project.ext.h2
