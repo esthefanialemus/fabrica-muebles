@@ -1,8 +1,6 @@
 package com.ceiba.servicio.testdatabuilder;
 
 
-import com.ceiba.comando.manejador.ComandoCliente;
-
 public class ComandoClienteTestDataBuilder {
 
     private Long id;
