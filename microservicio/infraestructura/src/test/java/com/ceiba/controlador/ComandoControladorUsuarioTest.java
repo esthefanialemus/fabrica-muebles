@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes= ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class ComandoControladorUsuarioTest {
-    /*
+
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -32,12 +32,11 @@ class ComandoControladorUsuarioTest {
     private MockMvc mocMvc;
 
     @Test
-    @DisplayName("Deberia crear un usuario")
-    void deberiaCrearUnUsuario() throws Exception{
+    void crear() throws Exception{
         // arrange
         ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(post("/usuarios")
+        mocMvc.perform(post("/usuario")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(usuario)))
                 .andExpect(status().isOk())
@@ -45,33 +44,27 @@ class ComandoControladorUsuarioTest {
     }
 
     @Test
-    @DisplayName("Deberia actualizar un usuario")
-    void deberiaActualizarUnUsuario() throws Exception{
+    void actualizar() throws Exception{
         // arrange
-        Long id = 1L;
+        Long id = 2L;
         ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(put("/usuarios/{id}",id)
+        mocMvc.perform(put("/usuario/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(usuario)))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @DisplayName("Deberia eliminar un usuario")
-    void deberiaEliminarUnUsuario() throws Exception {
+    void eliminar() throws Exception {
         // arrange
-        Long id = 1L;
+        Long id = 2L;
         // act - assert
-        mocMvc.perform(delete("/usuarios/{id}",id)
+        mocMvc.perform(delete("/usuario/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        mocMvc.perform(get("/usuarios")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(0)));
     }
-    */
+
 }
