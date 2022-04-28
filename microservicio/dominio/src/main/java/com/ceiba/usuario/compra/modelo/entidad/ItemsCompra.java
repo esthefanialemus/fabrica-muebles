@@ -1,8 +1,10 @@
 package com.ceiba.usuario.compra.modelo.entidad;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class ItemsCompra {
 
     private static final String SE_DEBE_INGRESAR_LA_FECHA_CREACION = "Se debe ingresar la fecha de creacion";

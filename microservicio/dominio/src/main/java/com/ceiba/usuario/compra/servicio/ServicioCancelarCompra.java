@@ -20,20 +20,27 @@ public class ServicioCancelarCompra {
     public void ejecutar(Long idCompra){
         DtoCompra dtoCompra = daoCompra.listarCompraPorId(idCompra);
 
-        calcularValorMulta(dtoCompra.getTotal(), dtoCompra.getFechaDespacho(),  dtoCompra.getFechaDespacho());
-        this.repositorioCompra.cancelarCompra(idCompra);
+        if(validarCancelacionCompra( dtoCompra.getFechaDespacho(),  dtoCompra.getFechaDespacho())) {
+
+            this.repositorioCompra.cancelarCompra(idCompra);
+
+        }
+
+
     }
 
-    private String calcularValorMulta(Double totalCompra, LocalDateTime fechaDespacho, LocalDateTime fechaEntrega ){
-
-        double valorMulta = 0;
-
+    private boolean validarCancelacionCompra(LocalDateTime fechaDespacho, LocalDateTime fechaEntrega )
+    {
         LocalDate fechaActual= LocalDate.now();
 
         if(( fechaActual.isEqual(fechaDespacho.toLocalDate()) || fechaActual.isAfter(fechaDespacho.toLocalDate())  ) && fechaActual.isBefore(fechaEntrega.toLocalDate()) ){
-            valorMulta=totalCompra*0.15;
+            return  true;
+        }else{
+            return  false;
         }
-        return  "El valor de la multa es de: "+valorMulta;
-
     }
+
+
+
+
 }

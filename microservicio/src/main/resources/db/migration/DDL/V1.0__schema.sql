@@ -2,13 +2,11 @@ CREATE TABLE usuario (
 	id INT NOT NULL AUTO_INCREMENT,
 	password varchar(100) NOT NULL,
 	username varchar(100) NOT NULL,
-    idRol INT NOT NULL,
-	PRIMARY KEY (id),
-    FOREIGN KEY (idRol) REFERENCES rol(id)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE cliente (
-	id INT NOT NULL AUTO_INCREMENT,
+	id INT  AUTO_INCREMENT,
 	nombre varchar(100) NOT NULL,
 	apellido varchar(100) NOT NULL,
 	identificacion varchar(100) NOT NULL,
@@ -26,21 +24,21 @@ CREATE TABLE producto (
 
 CREATE TABLE compra (
 	id INT NOT NULL AUTO_INCREMENT,
-    idCliente INT NOT NULL,
+    idCliente INT ,
     total DOUBLE NOT NULL,
     fechaCompra datetime,
     fechaDespacho datetime,
     fechaEntrega datetime,
 	PRIMARY KEY (id),
-    FOREIGN KEY (idCliente) REFERENCES cliente(id)
+    CONSTRAINT FK_id_cliente FOREIGN KEY (idCliente) REFERENCES cliente (id)
 );
 
 CREATE TABLE itemsCompra (
-	id INT NOT NULL AUTO_INCREMENT,
-    idCompra INT NOT NULL,
-    idProducto INT NOT NULL,
+	id INT NOT NULL ,
+    idCompra INT ,
+    idProducto INT ,
     cantidad INT NOT NULL,
 	PRIMARY KEY (id),
-    FOREIGN KEY (idCompra) REFERENCES compra(id)
-    FOREIGN KEY (idProducto) REFERENCES producto(id)
+CONSTRAINT FK_id_compra FOREIGN KEY (idCompra) REFERENCES compra (id),
+CONSTRAINT FK_id_producto FOREIGN KEY (idProducto) REFERENCES producto (id)
 );
