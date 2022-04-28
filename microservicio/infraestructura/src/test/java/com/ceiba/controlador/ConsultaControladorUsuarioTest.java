@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes= ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class ConsultaControladorUsuarioTest {
-
+    /*
     @Autowired
     private MockMvc mocMvc;
 
@@ -40,6 +40,6 @@ class ConsultaControladorUsuarioTest {
                 .andExpect(jsonPath("$[0].id", is(1)));
 
     }
-
+*/
 
 }
