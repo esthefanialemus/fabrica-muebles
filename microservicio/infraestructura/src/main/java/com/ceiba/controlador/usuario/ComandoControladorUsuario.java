@@ -1,4 +1,4 @@
-package com.ceiba.controlador;
+package com.ceiba.controlador.usuario;
 
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.comando.ComandoUsuario;

@@ -1,8 +1,8 @@
-package com.ceiba.controlador.usuario;
+package com.ceiba.controlador.cliente;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.comando.ComandoUsuario;
-import com.ceiba.servicio.testdatabuilder.ComandoUsuarioTestDataBuilder;
+import com.ceiba.comando.manejador.ComandoCliente;
+import com.ceiba.servicio.testdatabuilder.ComandoClienteTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +19,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@WebMvcTest(ComandoControladorUsuario.class)
-public class ComandoControladorUsuarioTest {
+@WebMvcTest(ComandoControladorCliente.class)
+public class ComandoControladorClienteTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -31,12 +31,12 @@ public class ComandoControladorUsuarioTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoCliente comandoCompra = new ComandoClienteTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/usuario")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(usuario)))
+        mocMvc.perform(post("/cliente")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(comandoCompra)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 2}"));
     }
@@ -45,24 +45,24 @@ public class ComandoControladorUsuarioTest {
     public void actualizar() throws Exception{
         // arrange
         Long id = 2L;
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoCliente cliente = new ComandoClienteTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/usuario/{id}",id)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(usuario)))
+        mocMvc.perform(put("/cliente/{id}",id)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(cliente)))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void eliminar() throws Exception {
-        // arrange
+        // arrange|
         Long id = 2L;
 
         // act - assert
-        mocMvc.perform(delete("/usuario/{id}",id)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
+        mocMvc.perform(delete("/cliente/{id}",id)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 }

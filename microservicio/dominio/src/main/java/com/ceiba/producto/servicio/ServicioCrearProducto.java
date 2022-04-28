@@ -1,6 +1,6 @@
 package com.ceiba.producto.servicio;
 
-import com.ceiba.cliente.entidad.Producto;
+import com.ceiba.cliente.entidad.Cliente;
 import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 
 public class ServicioCrearProducto {
@@ -13,7 +13,7 @@ public class ServicioCrearProducto {
         this.repositorioProducto = repositorioProducto;
     }
 
-    public Long ejecutar (Producto producto){
+    public Long ejecutar (Cliente producto){
 
 
         return this.repositorioProducto.crear(producto);

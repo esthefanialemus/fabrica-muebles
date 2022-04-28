@@ -1,6 +1,6 @@
 package com.ceiba.producto.puerto.repositorio;
 
-import com.ceiba.cliente.entidad.Producto;
+import com.ceiba.cliente.entidad.Cliente;
 
 public interface RepositorioProducto {
     /**
@@ -9,14 +9,14 @@ public interface RepositorioProducto {
      * @param producto
      * @return el id generado
      */
-    Long crear(Producto producto);
+    Long crear(Cliente producto);
 
     /**
      * Permite actualizar un Producto
      *
      * @param producto
      */
-    void actualizar(Producto producto);
+    void actualizar(Cliente producto);
 
     /**
      * Permite eliminar un Producto

@@ -1,7 +1,6 @@
 package com.ceiba.controlador.usuario;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.controlador.ConsultaControladorUsuario;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

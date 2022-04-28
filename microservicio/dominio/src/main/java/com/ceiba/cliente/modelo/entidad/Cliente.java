@@ -27,8 +27,7 @@ public class Cliente {
     private String email;
     private LocalDateTime fechaCreacion;
 
-    public Cliente(Long id, String nombres, String apellidos, String identificacion, String email,
-                   LocalDateTime fechaCreacion) {
+    public Cliente(Long id, String nombres, String apellidos, String identificacion, String email) {
 
         validarObligatorio(nombres, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
         validarObligatorio(apellidos, SE_DEBE_INGRESAR_LOS_APELLIDOS_DEL_CLIENTE);
@@ -43,4 +42,6 @@ public class Cliente {
         this.email = email;
         this.fechaCreacion = fechaCreacion;
     }
+
+
 }
