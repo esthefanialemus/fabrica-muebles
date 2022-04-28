@@ -1,73 +1,44 @@
-create table usuario (
- id int(11) not null auto_increment,
- nombre varchar(100) not null,
- clave varchar(45) not null,
- fecha_creacion datetime null,
- primary key (id)
-);
-create table roles_carrion (
- id int (11) not null auto_increment,
- nombre_rol varchar (50) not null,
- primary key (id)
+CREATE TABLE usuario (
+	id INT NOT NULL AUTO_INCREMENT,
+	password varchar(100) NOT NULL,
+	username varchar(100) NOT NULL,
+	PRIMARY KEY (id)
 );
 
-create table usuario_carrion (
- id int(11) not null auto_increment,
- identificacion int(15),
- nombre varchar(100) not null,
- apellido varchar(45) not null,
- edad int (10) null,
- tipo_rol int (10),
- ciudad_residencia varchar (50) null,
- correo_electronico varchar (50) null,
- fecha_creacion datetime default now(),
- usuario varchar (50) not null,
- clave varchar (50) not null,
- primary key (id),
- CONSTRAINT FK_Tipo_Rol FOREIGN KEY (tipo_rol) REFERENCES roles_carrion (id)
-
+CREATE TABLE cliente (
+	id INT  AUTO_INCREMENT,
+	nombre varchar(100) NOT NULL,
+	apellido varchar(100) NOT NULL,
+	identificacion varchar(100) NOT NULL,
+	email varchar(100) NOT NULL,
+	fecha_creacion datetime,
+	PRIMARY KEY (id)
+);
+CREATE TABLE producto (
+	id INT NOT NULL AUTO_INCREMENT,
+	valor DOUBLE NOT NULL,
+	numeroPuesto varchar(100) NOT NULL,
+	tipoComedor varchar(100) NOT NULL,
+	PRIMARY KEY (id)
 );
 
-create table tipo_vehiculo_carrion (
- id int (11) not null auto_increment,
- nombre_tipo_vehiculo varchar (50) not null,
- primary key (id)
+CREATE TABLE compra (
+	id INT NOT NULL AUTO_INCREMENT,
+    idCliente INT ,
+    total DOUBLE NOT NULL,
+    fechaCompra datetime,
+    fechaDespacho datetime,
+    fechaEntrega datetime,
+	PRIMARY KEY (id),
+    CONSTRAINT FK_id_cliente FOREIGN KEY (idCliente) REFERENCES cliente (id)
 );
 
-
-create table vehiculo_carrion (
- id int(11) not null auto_increment,
- id_conductor int(15),
- placa varchar (10) not null,
- numero_motor varchar (50) not null,
- numero_chasis varchar (50) not null,
- toneladas int (10) not null,
- tipo_vehiculo int (10) not null,
- modelo int (20),
- marca varchar (50),
- primary key (id),
- CONSTRAINT FK_Tipo_Vehiculo FOREIGN KEY (tipo_vehiculo) REFERENCES tipo_vehiculo_carrion (id),
- CONSTRAINT FK_Id_Conductor FOREIGN KEY (id_conductor) REFERENCES usuario_carrion (id)
+CREATE TABLE itemsCompra (
+	id INT NOT NULL ,
+    idCompra INT ,
+    idProducto INT ,
+    cantidad INT NOT NULL,
+	PRIMARY KEY (id),
+CONSTRAINT FK_id_compra FOREIGN KEY (idCompra) REFERENCES compra (id),
+CONSTRAINT FK_id_producto FOREIGN KEY (idProducto) REFERENCES producto (id)
 );
-
-create table viajes_carrion (
- id int (11) not null auto_increment,
- id_usuario int (11),
- id_conductor int (15),
- toneladas int (20),
- tipo_vehiculo int (10) not null,
- fecha_creacion datetime default now(),
- fecha_servicio datetime not null,
- origen varchar (50),
- destino  varchar (50),
- terminado boolean default false,
- tipo_casa varchar (50),
- precio int (50),
- primary key (id),
- CONSTRAINT FK_Id_Conductor_Viajes FOREIGN KEY (id_conductor) REFERENCES vehiculo_carrion (id)
-);
-
-
-
-
-
