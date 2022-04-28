@@ -27,8 +27,6 @@ public class Compra {
 
     private LocalDateTime fechaEntrega;
 
-
-
     public Compra(Long id, Long idCliente, Double total, LocalDateTime fechaCompra,LocalDateTime fechaDespacho,
                   LocalDateTime fechaEntrega) {
 
@@ -43,7 +41,6 @@ public class Compra {
         this.fechaCompra = fechaCompra;
         this.fechaDespacho= fechaDespacho;
         this.fechaEntrega = fechaEntrega;
-
     }
 
 
