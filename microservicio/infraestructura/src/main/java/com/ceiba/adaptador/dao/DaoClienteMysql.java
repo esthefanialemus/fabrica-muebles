@@ -16,13 +16,14 @@ public class DaoClienteMysql implements DaoCliente {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
+
     @SqlStatement(namespace="cliente", value="listar")
     private static String sqlListar;
 
     @SqlStatement(namespace="cliente", value="obtener")
     private static String sqlObtener;
         
-    
+
     public DaoClienteMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
