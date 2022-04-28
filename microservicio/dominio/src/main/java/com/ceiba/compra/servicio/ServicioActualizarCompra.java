@@ -47,11 +47,14 @@ public class ServicioActualizarCompra {
 
         LocalDate fechaActual= LocalDate.now();
 
+        boolean cancelar=false;
+
         if(( fechaActual.isEqual(fechaDespacho.toLocalDate()) || fechaActual.isAfter(fechaDespacho.toLocalDate())  ) && fechaActual.isBefore(fechaEntrega.toLocalDate()) ){
-            return  true;
+           cancelar=  true;
         }else{
-            return  false;
+            cancelar = false;
         }
+        return  cancelar;
     }
 
     private void cancelarCompra(Compra compra){
