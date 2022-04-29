@@ -1,8 +1,18 @@
 package com.ceiba.cliente.puerto.repositorio;
 
+import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 
+import java.util.List;
+
 public interface RepositorioCliente {
+
+
+    List<DtoCliente> listar();
+
+    void guardar(Cliente cliente);
+
+    boolean existe(String identificacion);
 
     /**
      * Permite crear un Cliente
@@ -26,13 +36,6 @@ public interface RepositorioCliente {
      */
     void eliminar(Long id);
 
-    /**
-     * Permite validar si existe un Cliente con una identificacion
-     *
-     * @param identificacion
-     * @return si existe o no
-     */
-    boolean existe(String identificacion);
 
     /**
      * Permite validar si existe un Cliente con una identificacion excluyendo un id
@@ -41,4 +44,5 @@ public interface RepositorioCliente {
      * @return si existe o no
      */
     boolean existeExcluyendoId(Long id, String identificacion);
+
 }

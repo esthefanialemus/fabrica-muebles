@@ -15,9 +15,9 @@ public interface DaoCliente {
     /**
      * Permite obtener un Cliente dado su identificacion
      *
-     * @param 'id
+     * @param identificacion
      * @return el Cliente
      */
-    DtoCliente obtener(Long identificacion);
+    DtoCliente obtener(String identificacion);
 
 }

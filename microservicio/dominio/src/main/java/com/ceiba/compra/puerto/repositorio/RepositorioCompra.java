@@ -1,5 +1,6 @@
 package com.ceiba.compra.puerto.repositorio;
 
+
 import com.ceiba.compra.modelo.entidad.Compra;
 
 import java.time.LocalDateTime;
@@ -8,6 +9,12 @@ public interface RepositorioCompra {
 
 
 
+    /**
+     * Permite cancelar una Compra
+     *
+     * @param idCompra
+     */
+    public String cancelarCompra(Long idCompra);
 
     /**
      * Permite crear una Compra
@@ -24,12 +31,6 @@ public interface RepositorioCompra {
      */
     void actualizar(Compra Compra);
 
-    /**
-     * Permite cancelar una Compra
-     *
-     * @param id
-     */
-    public String cancelarCompra(Long idCompra);
 
     /**
      * Permite validar si existe una compra con la fecha de compra, cliente relacionados
