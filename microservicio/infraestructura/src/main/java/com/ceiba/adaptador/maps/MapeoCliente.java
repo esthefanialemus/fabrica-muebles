@@ -14,13 +14,15 @@ public class MapeoCliente implements RowMapper<DtoCliente>, MapperResult {
     public DtoCliente mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
         Long id = resultSet.getLong("id");
-    	 String nombre = resultSet.getString("nombres");
-    	 String apellido = resultSet.getString("apellidos");
+    	 String nombre = resultSet.getString("nombre");
+    	 String apellido = resultSet.getString("apellido");
     	 String identificacion = resultSet.getString("identificacion");
     	 String email = resultSet.getString("email");
-    	 LocalDateTime fechaCreacion = extraerLocalDateTime(resultSet, "fechaCreacion");
-        
+        LocalDateTime fechaCreacion = extraerLocalDateTime(resultSet, "fechaCreacion");
+
+
         return new DtoCliente(id, nombre, apellido, identificacion, email, fechaCreacion);
+
     }
 
 }

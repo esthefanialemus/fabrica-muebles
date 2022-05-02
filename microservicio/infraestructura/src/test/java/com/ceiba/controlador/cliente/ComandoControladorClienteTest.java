@@ -31,12 +31,12 @@ public class ComandoControladorClienteTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoCliente comandoCompra = new ComandoClienteTestDataBuilder().build();
+        ComandoCliente comandoCliente = new ComandoClienteTestDataBuilder().build();
 
         // act - assert
         mocMvc.perform(post("/cliente")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(comandoCompra)))
+                        .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 2}"));
     }

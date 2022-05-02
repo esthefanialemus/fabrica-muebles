@@ -1,5 +1,5 @@
 update usuario
-set idRol = :idRol,
-	password = :password,
-	username = :username
+set id = :id,
+	clave = :clave,
+	nombre = :nombre
 where id = :id

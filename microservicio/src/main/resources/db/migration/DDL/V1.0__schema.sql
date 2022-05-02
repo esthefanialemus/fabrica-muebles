@@ -1,7 +1,7 @@
 CREATE TABLE usuario (
 	id INT NOT NULL AUTO_INCREMENT,
-	password varchar(100) NOT NULL,
-	username varchar(100) NOT NULL,
+	clave varchar(100) NOT NULL,
+	nombre varchar(100) NOT NULL,
 	PRIMARY KEY (id)
 );
 

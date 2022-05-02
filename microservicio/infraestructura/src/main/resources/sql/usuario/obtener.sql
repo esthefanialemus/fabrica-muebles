@@ -1,3 +1,3 @@
-select id,idRol,password,username
+select id,clave,nombre
 from usuario
 where id = :id

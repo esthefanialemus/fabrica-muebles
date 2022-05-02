@@ -1,4 +1,4 @@
-package com.ceiba.consulta;
+package com.ceiba.consulta.usuario;
 
 
 import com.ceiba.usuario.modelo.dto.DtoUsuario;

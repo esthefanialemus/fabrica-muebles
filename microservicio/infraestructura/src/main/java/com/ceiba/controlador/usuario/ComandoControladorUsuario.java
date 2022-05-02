@@ -12,9 +12,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/usuario")
 @Api(tags = { "Controlador comando usuario"})
-public class ComandoControladorUsuario {
+public class ComandoControladorUsuario  {
 
     private final ManejadorCrearUsuario manejadorCrearUsuario;
 	private final ManejadorEliminarUsuario manejadorEliminarUsuario;
@@ -31,9 +31,9 @@ public class ComandoControladorUsuario {
 
     @PostMapping
     @ApiOperation("Crear Usuario")
-    public ComandoRespuesta<Long> crear(@RequestBody ComandoUsuario comandoUsuario) {
-        return manejadorCrearUsuario.ejecutar(comandoUsuario);
-    }
+	public ComandoRespuesta<Long> crear(@RequestBody ComandoUsuario comandoUsuario) {
+		return manejadorCrearUsuario.ejecutar(comandoUsuario);
+	}
 
     @DeleteMapping(value="/{id}")
 	@ApiOperation("Eliminar Usuario")

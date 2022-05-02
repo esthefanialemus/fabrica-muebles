@@ -2,7 +2,7 @@ package com.ceiba.controlador.usuario;
 
 import java.util.List;
 
-import com.ceiba.consulta.ManejadorListarUsuarios;
+import com.ceiba.consulta.usuario.ManejadorListarUsuarios;
 import com.ceiba.usuario.modelo.dto.DtoUsuario;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

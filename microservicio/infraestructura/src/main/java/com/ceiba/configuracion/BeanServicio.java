@@ -39,7 +39,7 @@ public class BeanServicio {
 
     /*
      *
-     * SERVICIOS DEL CLIENTE
+     * SERVICIOS DEL USUARIO
      *
      */
 

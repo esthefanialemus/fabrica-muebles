@@ -1,9 +1,8 @@
 package com.ceiba.usuario.servicio;
 
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.usuario.modelo.entidad.Usuario;
-
+import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 
 public class ServicioCrearUsuario {
 
@@ -26,4 +25,5 @@ public class ServicioCrearUsuario {
             throw new ExcepcionDuplicidad(EL_USUARIO_YA_EXISTE_EN_EL_SISTEMA);
         }
     }
+
 }
