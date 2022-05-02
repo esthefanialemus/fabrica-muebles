@@ -2,6 +2,7 @@ package com.ceiba.adaptador.dao;
 
 import java.util.List;
 
+import com.ceiba.adaptador.maps.MapeoUsuario;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 

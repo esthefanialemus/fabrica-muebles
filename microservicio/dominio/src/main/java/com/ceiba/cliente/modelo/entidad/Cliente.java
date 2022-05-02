@@ -27,17 +27,17 @@ public class Cliente {
     private String email;
     private LocalDateTime fechaCreacion;
 
-    public Cliente(Long id, String nombres, String apellidos, String identificacion, String email) {
+    public Cliente(Long id, String nombre, String apellido, String identificacion, String email) {
 
-        validarObligatorio(nombres, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
-        validarObligatorio(apellidos, SE_DEBE_INGRESAR_LOS_APELLIDOS_DEL_CLIENTE);
+        validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
+        validarObligatorio(apellido, SE_DEBE_INGRESAR_LOS_APELLIDOS_DEL_CLIENTE);
         validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION);
         validarObligatorio(identificacion, SE_DEBE_INGRESAR_LA_IDENTIFICACION_DEL_CLIENTE);
         validarObligatorio(email, SE_DEBE_INGRESAR_EL_EMAIL);
 
         this.id = id;
-        this.nombre = nombres;
-        this.apellido = apellidos;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.identificacion = identificacion;
         this.email = email;
         this.fechaCreacion = fechaCreacion;

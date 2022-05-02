@@ -1,4 +1,4 @@
-package com.ceiba.adaptador.dao;
+package com.ceiba.adaptador.maps;
 
 import com.ceiba.infraestructura.jdbc.MapperResult;
 import com.ceiba.usuario.modelo.dto.DtoUsuario;
