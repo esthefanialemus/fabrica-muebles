@@ -3,6 +3,9 @@ package com.ceiba.producto.modelo.entidad;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+
 @Getter
 public class Producto {
 
@@ -15,6 +18,10 @@ public class Producto {
     private String tipoComedor;
 
     public Producto(Long id, Double valor, String numeroPuesto, String tipoComedor) {
+
+        validarObligatorio(numeroPuesto, SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO);
+        validarObligatorio(tipoComedor,SE_DEBE_INGRESAR_EL_TIPO_DE_COMEDOR);
+
         this.id = id;
         this.valor = valor;
         this.numeroPuesto = numeroPuesto;

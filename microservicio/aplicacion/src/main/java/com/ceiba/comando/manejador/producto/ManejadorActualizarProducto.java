@@ -7,7 +7,9 @@ import com.ceiba.comando.manejador.ComandoProducto;
 import com.ceiba.producto.modelo.entidad.Producto;
 import com.ceiba.producto.servicio.ServicioCrearProducto;
 import com.ceiba.usuario.modelo.entidad.Usuario;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ManejadorActualizarProducto {
 
 

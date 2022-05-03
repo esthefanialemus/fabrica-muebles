@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,4 +17,5 @@ public class ComandoCliente {
     private String apellido;
     private String identificacion;
     private String email;
+    private LocalDateTime fechaCreacion;
 }

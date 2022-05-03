@@ -1,11 +1,10 @@
-package com.ceiba.controlador.cliente;
+package com.ceiba.cliente.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.cliente.controlador.ComandoControladorCliente;
 import com.ceiba.comando.manejador.ComandoCliente;
-import com.ceiba.servicio.testdatabuilder.ComandoClienteTestDataBuilder;
+import com.ceiba.cliente.servicio.ComandoClienteTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -21,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @WebMvcTest(ComandoControladorCliente.class)
-public class ComandoControladorClienteTest {
+public class ComandoControladorClienteTest  {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -29,8 +28,9 @@ public class ComandoControladorClienteTest {
     @Autowired
     private MockMvc mocMvc;
 
+
     @Test
-    public void crear() throws Exception{
+    void crear() throws  Exception{
         // arrange
         ComandoCliente comandoCliente = new ComandoClienteTestDataBuilder().build();
 
@@ -39,24 +39,11 @@ public class ComandoControladorClienteTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 2}"));
+                .andExpect(content().json("{'valor': 1}"));
     }
 
     @Test
-    public void actualizar() throws Exception{
-        // arrange
-        Long id = 2L;
-        ComandoCliente cliente = new ComandoClienteTestDataBuilder().build();
-
-        // act - assert
-        mocMvc.perform(put("/cliente/{id}",id)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(cliente)))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void eliminar() throws Exception {
+    void eliminar() throws  Exception{
         // arrange|
         Long id = 2L;
 
@@ -65,5 +52,18 @@ public class ComandoControladorClienteTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    void actualizar() throws Exception {
+        // arrange
+        ComandoCliente comandoCliente = new ComandoClienteTestDataBuilder().build();
+
+        // act - assert
+        mocMvc.perform(post("/cliente")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(comandoCliente)))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'valor': 1}"));
     }
 }

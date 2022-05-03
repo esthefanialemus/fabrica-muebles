@@ -11,7 +11,7 @@ public class Cliente {
 
     private static final String SE_DEBE_INGRESAR_LA_FECHA_CREACION = "Se debe ingresar la fecha de creación";
 
-     static final String SE_DEBE_INGRESAR_LA_CLAVE = "Se debe ingresar la clave";
+     private static final String SE_DEBE_INGRESAR_LA_CLAVE = "Se debe ingresar la clave";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO = "Se debe ingresar el nombre de usuario";
     private static final String SE_DEBE_INGRESAR_LOS_APELLIDOS_DEL_CLIENTE = "Se debe ingresar los apellidos del cliente";
     private static final String SE_DEBE_INGRESAR_LA_IDENTIFICACION_DEL_CLIENTE = "Se debe ingresar la identificaci\u00f3n del cliente";
@@ -27,7 +27,7 @@ public class Cliente {
     private String email;
     private LocalDateTime fechaCreacion;
 
-    public Cliente(Long id, String nombre, String apellido, String identificacion, String email) {
+    public Cliente(Long id, String nombre, String apellido, String identificacion, String email, LocalDateTime fechaCreacion) {
 
         validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
         validarObligatorio(apellido, SE_DEBE_INGRESAR_LOS_APELLIDOS_DEL_CLIENTE);

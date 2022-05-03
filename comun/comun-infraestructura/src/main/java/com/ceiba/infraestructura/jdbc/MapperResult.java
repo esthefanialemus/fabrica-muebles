@@ -17,7 +17,8 @@ public interface MapperResult {
         return resultado;
     } 
 	
-	default LocalDateTime extraerLocalDateTime(ResultSet resultSet, String label) throws SQLException {
+	default LocalDateTime
+    extraerLocalDateTime(ResultSet resultSet, String label) throws SQLException {
         Timestamp fecha = resultSet.getTimestamp(label);
         LocalDateTime resultado = null;
         if (!resultSet.wasNull()) {

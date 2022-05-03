@@ -1,4 +1,4 @@
-package com.ceiba.servicio.testdatabuilder;
+package com.ceiba.usuario.servicio;
 
 import com.ceiba.comando.ComandoUsuario;
 

@@ -11,7 +11,7 @@ CREATE TABLE cliente (
 	apellido varchar(100) NOT NULL,
 	identificacion varchar(100) NOT NULL,
 	email varchar(100) NOT NULL,
-	fecha_creacion datetime,
+	fechaCreacion datetime,
 	PRIMARY KEY (id)
 );
 CREATE TABLE producto (
