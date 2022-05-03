@@ -38,8 +38,7 @@ public class ComandoControladorClienteTest  {
         mocMvc.perform(post("/cliente")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(comandoCliente)))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 1}"));
+                .andExpect(status().isOk());
     }
 
     @Test
