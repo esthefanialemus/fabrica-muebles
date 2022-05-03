@@ -26,6 +26,6 @@ public interface DaoUsuario {
 	 * @param username
 	 * @return el usuario
 	 */
-	DtoUsuario obtenerPorUsername(String username);
+	DtoUsuario obtenerPorNombre(String username);
 	
 }

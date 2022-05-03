@@ -16,14 +16,16 @@ public class ServicioActualizarUsuario {
 
 
     public void ejecutar(Usuario usuario) {
-        validarExistenciaPrevia(usuario);
-        this.repositorioUsuario.actualizar(usuario);
+       if(validarExistenciaPrevia(usuario)) {
+           throw new ExcepcionDuplicidad(EL_USUARIO_YA_EXISTE_EN_EL_SISTEMA);
+       }else {
+           this.repositorioUsuario.actualizar(usuario);
+       }
+
     }
 
-    private void validarExistenciaPrevia(Usuario usuario) {
-        boolean existe = this.repositorioUsuario.existeExcluyendoId(usuario.getId());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_USUARIO_YA_EXISTE_EN_EL_SISTEMA);
-        }
+    private boolean validarExistenciaPrevia(Usuario usuario) {
+
+        return this.repositorioUsuario.existeExcluyendoId(usuario.getId());
     }
 }

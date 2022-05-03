@@ -24,5 +24,6 @@ public interface MapperResult {
             resultado = fecha.toLocalDateTime();
         }
         return resultado;
-    } 
+    }
+
 }

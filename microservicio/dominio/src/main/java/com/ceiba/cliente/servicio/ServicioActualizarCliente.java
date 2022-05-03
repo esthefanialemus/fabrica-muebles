@@ -21,7 +21,7 @@ public class ServicioActualizarCliente {
 
     private void validarExistenciaPrevia(Cliente cliente) {
         boolean existe = this.repositorioCliente.existeExcluyendoId(cliente.getId(), cliente.getIdentificacion());
-        if(!existe) {
+        if(existe) {
             throw new ExcepcionDuplicidad(EL_CLIENTE_NO_EXISTE_EN_EL_SISTEMA);
         }
     }

@@ -1,6 +1,7 @@
 package com.ceiba.controlador.cliente;
 
 import com.ceiba.ApplicationMock;
+import com.ceiba.cliente.controlador.ConsultaControladorCliente;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

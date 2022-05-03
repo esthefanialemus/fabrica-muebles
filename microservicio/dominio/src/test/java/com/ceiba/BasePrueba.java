@@ -34,6 +34,10 @@ public class BasePrueba {
         }
     }
 
+    public static boolean assertEquals(Object esperado, Object esperado2 ) {
+       return assertEquals(esperado,esperado2);
+    }
+
     @FunctionalInterface
     public interface Thunk {
         void execute();

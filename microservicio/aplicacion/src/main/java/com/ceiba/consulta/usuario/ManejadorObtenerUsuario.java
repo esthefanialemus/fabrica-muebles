@@ -18,7 +18,7 @@ public class ManejadorObtenerUsuario {
 	}
 	
 	public DtoUsuario ejecutar(String username) {
-		return this.daoUsuario.obtenerPorUsername(username);
+		return this.daoUsuario.obtenerPorNombre(username);
 	}
 
 }

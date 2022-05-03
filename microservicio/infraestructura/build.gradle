@@ -26,6 +26,7 @@ repositories {
 
 dependencies {
 	implementation 'junit:junit:4.13.1'
+    implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation project.ext.mockitocore
 	testImplementation project.ext.mockitoinline
 	testImplementation project.ext.mockitojupiter
