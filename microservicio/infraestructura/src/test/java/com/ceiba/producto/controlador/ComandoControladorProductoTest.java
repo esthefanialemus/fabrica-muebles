@@ -15,8 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -49,14 +48,23 @@ class ComandoControladorProductoTest {
         ComandoProducto producto = new ComandoProductoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/cliente/{id}",id)
+        mocMvc.perform(put("/producto/{id}",id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(producto)))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void eliminar() {
+    void eliminar() throws Exception {
+
+        // arrange|
+        Long id = 2L;
+
+        // act - assert
+        mocMvc.perform(delete("/producto/{id}",id)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
 
     }
 

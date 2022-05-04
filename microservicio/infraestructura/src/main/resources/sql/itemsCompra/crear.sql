@@ -1,0 +1,1 @@
+insert into itemsCompra (id,cantidad, idCompra,idProducto) values (:id, :cantidad, :idCompra,:idProducto)

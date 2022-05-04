@@ -28,21 +28,20 @@ public interface RepositorioItemsCompra {
     void eliminar(Long id);
 
     /**
-     * Permite validar si existe un ItemsCompra con una fecha y compra
+     * Permite validar si existe un ItemsCompra con una  compra
      *
-     * @param fechaCreacion
      * @param idCompra
      * @return si existe o no
      */
-    boolean existe(LocalDateTime fechaCreacion, Long idCompra);
+    boolean existe(Long idCompra);
 
     /**
-     * Permite validar si existe un ItemsCompra con una fecha excluyendo un id
+     * Permite validar si existe un ItemsCompra excluyendo un id
      *
      * @param id
-     * @param fechaCreacion
      * @param idCompra
      * @return si existe o no
      */
-    boolean existeExcluyendoId(Long id, LocalDateTime fechaCreacion,Long idCompra);
+    boolean existeExcluyendoId(Long id,Long idCompra);
+
 }
