@@ -1,7 +1,7 @@
 package com.ceiba.producto.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.comando.manejador.ComandoProducto;
+import com.ceiba.comando.ComandoProducto;
 import com.ceiba.comando.manejador.producto.ManejadorActualizarProducto;
 import com.ceiba.comando.manejador.producto.ManejadorCrearProducto;
 import com.ceiba.comando.manejador.producto.ManejadorEliminarProducto;

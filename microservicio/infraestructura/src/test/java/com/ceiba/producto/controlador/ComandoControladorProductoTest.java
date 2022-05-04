@@ -1,11 +1,8 @@
 package com.ceiba.producto.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.cliente.servicio.ComandoClienteTestDataBuilder;
-import com.ceiba.comando.manejador.ComandoCliente;
-import com.ceiba.comando.manejador.ComandoProducto;
+import com.ceiba.comando.ComandoProducto;
 import com.ceiba.producto.servicio.ComandoProductoTestDataBuilder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)

@@ -1,6 +1,6 @@
 package com.ceiba.producto.servicio;
 
-import com.ceiba.comando.manejador.ComandoProducto;
+import com.ceiba.comando.ComandoProducto;
 
 public class ComandoProductoTestDataBuilder {
     private Long id;

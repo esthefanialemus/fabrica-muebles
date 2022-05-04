@@ -1,7 +1,7 @@
 package com.ceiba.cliente.servicio;
 
 
-import com.ceiba.comando.manejador.ComandoCliente;
+import com.ceiba.comando.ComandoCliente;
 
 import java.time.LocalDateTime;
 

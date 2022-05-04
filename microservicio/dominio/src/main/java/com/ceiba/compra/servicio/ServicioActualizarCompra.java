@@ -45,12 +45,14 @@ public class ServicioActualizarCompra {
 	private boolean validarCancelacionCompra(LocalDateTime fechaDespacho, LocalDateTime fechaEntrega) {
 
 		LocalDate fechaActual= LocalDate.now();
+		boolean booleanoCancelaCompra=false;
 
 		if(( fechaActual.isEqual(fechaDespacho.toLocalDate()) || fechaActual.isAfter(fechaDespacho.toLocalDate())  ) && fechaActual.isBefore(fechaEntrega.toLocalDate()) ){
-			return  true;
+			booleanoCancelaCompra=true;
 		}else{
-			return  false;
+			booleanoCancelaCompra=false;
 		}
+		return booleanoCancelaCompra;
 	}
 
 	private void cancelarCompra(Compra compra) {

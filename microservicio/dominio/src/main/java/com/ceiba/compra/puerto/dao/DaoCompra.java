@@ -21,10 +21,9 @@ public interface DaoCompra {
     DtoCompra obtener(Long id);
 
 	/**
-	 * Permite listar Compras dado un id
-	 * @param id
+	 * Permite listar Compra dado un id
+	 * @param idCompra
 	 * @return Las Compras
 	 */
-	List<DtoCompra> listarCompraPorId(Long id);
-	
+	public DtoCompra listarCompraPorId (Long idCompra);
 }

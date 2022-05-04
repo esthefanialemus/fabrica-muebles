@@ -4,6 +4,11 @@ import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.cliente.servicio.ServicioActualizarCliente;
 import com.ceiba.cliente.servicio.ServicioCrearCliente;
 import com.ceiba.cliente.servicio.ServicioEliminarCliente;
+import com.ceiba.compra.puerto.dao.DaoCompra;
+import com.ceiba.compra.puerto.repositorio.RepositorioCompra;
+import com.ceiba.compra.servicio.ServicioActualizarCompra;
+import com.ceiba.compra.servicio.ServicioCrearCompra;
+import com.ceiba.compra.servicio.ServicioEliminarCompra;
 import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 import com.ceiba.producto.servicio.ServicioActualizarProducto;
 import com.ceiba.producto.servicio.ServicioCrearProducto;
@@ -84,5 +89,24 @@ public class BeanServicio {
         return new ServicioActualizarProducto(repositorioProducto);
     }
 
+    /*
+     *
+     * SERVICIOS DEL COMPRA
+     *
+     */
+    @Bean
+    public ServicioCrearCompra servicioCrearCompra(RepositorioCompra repositorioCompra) {
+        return new ServicioCrearCompra(repositorioCompra);
+    }
+
+    @Bean
+    public ServicioEliminarCompra servicioEliminarCompra(RepositorioCompra repositorioCompra) {
+        return new ServicioEliminarCompra(repositorioCompra);
+    }
+
+    @Bean
+    public ServicioActualizarCompra servicioActualizarCompra(RepositorioCompra repositorioCompra, DaoCompra daoCompra) {
+        return new ServicioActualizarCompra(repositorioCompra,daoCompra);
+    }
 
 }

@@ -1,7 +1,7 @@
 package com.ceiba.cliente.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.comando.manejador.ComandoCliente;
+import com.ceiba.comando.ComandoCliente;
 import com.ceiba.comando.manejador.cliente.ManejadorActualizarCliente;
 import com.ceiba.comando.manejador.cliente.ManejadorCrearCliente;
 import com.ceiba.comando.manejador.cliente.ManejadorEliminarCliente;
