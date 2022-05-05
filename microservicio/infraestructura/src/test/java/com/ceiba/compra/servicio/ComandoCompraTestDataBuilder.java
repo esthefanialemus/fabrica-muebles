@@ -16,12 +16,19 @@ public class ComandoCompraTestDataBuilder {
 
 	public ComandoCompraTestDataBuilder() {
 
-		idCliente = 2L;
+		idCliente = 1L;
 		total = 250000D;
 		fechaCompra = LocalDateTime.now();
+		fechaDespacho = LocalDateTime.now().plusDays(4);
 		fechaEntrega = LocalDateTime.now().plusDays(6);
-		fechaDespacho = LocalDateTime.now().plusDays(6);
 
+	}
+
+	public ComandoCompraTestDataBuilder conFechaEntregaCompraYCliente(Long idCliente, LocalDateTime fechaCompra, LocalDateTime fechaEntrega) {
+		this.idCliente = idCliente;
+		this.fechaCompra = fechaCompra;
+		this.fechaEntrega = fechaEntrega;
+		return this;
 	}
 
 	public ComandoCompra build() {

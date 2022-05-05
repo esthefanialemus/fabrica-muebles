@@ -44,7 +44,7 @@ public class ComandoControladorClienteTest  {
     @Test
     void eliminar() throws  Exception{
         // arrange|
-        Long id = 2L;
+        Long id = 3L;
 
         // act - assert
         mocMvc.perform(delete("/cliente/{id}",id)
@@ -59,10 +59,9 @@ public class ComandoControladorClienteTest  {
         ComandoCliente comandoCliente = new ComandoClienteTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/cliente")
+        mocMvc.perform(put("/cliente/{id}",3)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(comandoCliente)))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 1}"));
+                .andExpect(status().isOk());
     }
 }

@@ -1,2 +1,3 @@
-select id,idCliente,total,fechaCompra,fechaEntrega
-from compra
+select id,idCliente,total,fechaCompra,fechaEntrega,fechaDespacho
+from compra;
+

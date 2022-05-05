@@ -25,5 +25,5 @@ public interface DaoCompra {
 	 * @param idCompra
 	 * @return Las Compras
 	 */
-	public DtoCompra listarCompraPorId (Long idCompra);
+	 DtoCompra listarCompraPorId (Long idCompra);
 }

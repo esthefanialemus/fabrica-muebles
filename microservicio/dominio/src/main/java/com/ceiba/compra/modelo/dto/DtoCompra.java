@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class DtoCompra {
 	
     private Long id;
-	private DtoCliente idCliente;
+	private Long idCliente;
     private Double total;
 	private LocalDateTime fechaCompra;
 	private LocalDateTime fechaEntrega;

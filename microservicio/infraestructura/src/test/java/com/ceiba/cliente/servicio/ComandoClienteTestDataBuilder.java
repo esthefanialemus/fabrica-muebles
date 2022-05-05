@@ -18,10 +18,10 @@ public class ComandoClienteTestDataBuilder {
 
 	public ComandoClienteTestDataBuilder()  {
 
-		nombre = "Esthefania ";
-		apellido = "Lemus";
-		identificacion = "1094972643";
-		email = "esthefania.lemus@mail.com";
+		nombre = "mini ";
+		apellido = "p";
+		identificacion = "6789";
+		email = "lemus@mail.com";
 		fechaCreacion = LocalDateTime.now();
 
 		

@@ -15,24 +15,15 @@ public class MapeoCompra implements RowMapper<DtoCompra>, MapperResult {
 	public DtoCompra mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
 		Long id = resultSet.getLong("id");
+		Long idCliente = resultSet.getLong("idCliente");
 		Double total = resultSet.getDouble("total");
 		LocalDateTime fechaCompra = extraerLocalDateTime(resultSet, "fechaCompra");
 		LocalDateTime fechaEntrega = extraerLocalDateTime(resultSet, "fechaEntrega");
 		LocalDateTime fechaDespacho = extraerLocalDateTime(resultSet, "fechaDespacho");
 
-		return new DtoCompra(id, mapRowCliente(resultSet), total, fechaCompra, fechaEntrega,fechaDespacho);
+		return new DtoCompra(id, idCliente, total, fechaCompra, fechaEntrega,fechaDespacho);
 	}
 
-	private DtoCliente mapRowCliente(ResultSet resultSet) throws SQLException {
 
-		Long id = resultSet.getLong("id");
-		String nombre = resultSet.getString("nombre");
-		String apellido = resultSet.getString("apellido");
-		String identificacion = resultSet.getString("identificacion");
-		String email = resultSet.getString("email");
-		LocalDateTime fechaCreacion = extraerLocalDateTime(resultSet, "fechaCreacion");
-
-		return new DtoCliente(id, nombre, apellido, identificacion, email, fechaCreacion);
-	}
 
 }

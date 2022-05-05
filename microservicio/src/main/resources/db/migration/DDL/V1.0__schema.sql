@@ -6,7 +6,7 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE cliente (
-	id INT  AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	nombre varchar(100) NOT NULL,
 	apellido varchar(100) NOT NULL,
 	identificacion varchar(100) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE compra (
 );
 
 CREATE TABLE itemsCompra (
-	id INT NOT NULL ,
+	id INT NOT NULL AUTO_INCREMENT ,
     idCompra INT ,
     idProducto INT ,
     cantidad INT NOT NULL,

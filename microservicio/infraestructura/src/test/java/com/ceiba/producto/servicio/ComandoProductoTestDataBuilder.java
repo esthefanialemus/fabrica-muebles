@@ -9,10 +9,10 @@ public class ComandoProductoTestDataBuilder {
     private String tipoComedor;
 
     public ComandoProductoTestDataBuilder() {
-        id=2L;
-        valor=500.000;
-        numeroPuesto="4";
-        tipoComedor="Madera";
+        id=3L;
+        valor=1500.000;
+        numeroPuesto="6";
+        tipoComedor="Tapizado";
     }
 
     public ComandoProducto build(){

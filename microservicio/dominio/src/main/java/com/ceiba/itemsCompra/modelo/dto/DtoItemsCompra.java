@@ -10,8 +10,8 @@ import lombok.Getter;
 public class DtoItemsCompra {
     private Long id;
     private Long cantidad;
-    private DtoCompra idCompra;
-    private DtoProducto idProducto;
+    private Long idCompra;
+    private Long idProducto;
 
 
 }

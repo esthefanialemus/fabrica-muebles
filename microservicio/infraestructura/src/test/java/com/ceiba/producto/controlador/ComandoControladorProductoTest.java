@@ -44,7 +44,7 @@ class ComandoControladorProductoTest {
     @Test
     void actualizar() throws Exception {
         // arrange
-        Long id = 2L;
+        Long id = 3L;
         ComandoProducto producto = new ComandoProductoTestDataBuilder().build();
 
         // act - assert
@@ -58,7 +58,7 @@ class ComandoControladorProductoTest {
     void eliminar() throws Exception {
 
         // arrange|
-        Long id = 2L;
+        Long id = 1L;
 
         // act - assert
         mocMvc.perform(delete("/producto/{id}",id)
