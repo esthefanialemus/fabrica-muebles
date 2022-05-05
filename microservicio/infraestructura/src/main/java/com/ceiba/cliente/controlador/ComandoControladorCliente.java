@@ -15,7 +15,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/cliente")
 @Api(tags = { "Controlador comando cliente"})
-public class ComandoControladorCliente {
+public class
+ComandoControladorCliente {
 
     private final ManejadorCrearCliente manejadorCrearCliente;
     private final ManejadorEliminarCliente manejadorEliminarCliente;
@@ -33,8 +34,9 @@ public class ComandoControladorCliente {
 
     @PostMapping
     @ApiOperation("Crear cliente")
-    public ComandoRespuesta<Long> crear(@RequestBody ComandoCliente comandoCompra) {
-        return manejadorCrearCliente.ejecutar(comandoCompra);
+    public void crear(@RequestBody ComandoCliente comandoCompra) {
+     //   return manejadorCrearCliente.ejecutar(comandoCompra);
+
     }
 
     @DeleteMapping(value="/{id}")

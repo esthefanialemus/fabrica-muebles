@@ -1,7 +1,5 @@
 package com.ceiba.itemsCompra.modelo.dto;
 
-import com.ceiba.compra.modelo.dto.DtoCompra;
-import com.ceiba.producto.modelo.dto.DtoProducto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

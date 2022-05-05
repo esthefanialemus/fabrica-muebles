@@ -1,9 +1,9 @@
 package com.ceiba.dominio.excepcion;
 
-public class ExcepcionDiaFestivo extends  RuntimeException{
+public class ExcepcionHorario extends  RuntimeException{
     private static final long serialVersionUID = 1L;
 
-    public ExcepcionDiaFestivo(String mensaje) {
+    public ExcepcionHorario(String mensaje) {
         super(mensaje);
     }
 }

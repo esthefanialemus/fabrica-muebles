@@ -14,7 +14,7 @@ public class Cliente {
      private static final String SE_DEBE_INGRESAR_LA_CLAVE = "Se debe ingresar la clave";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO = "Se debe ingresar el nombre de usuario";
     private static final String SE_DEBE_INGRESAR_LOS_APELLIDOS_DEL_CLIENTE = "Se debe ingresar los apellidos del cliente";
-    private static final String SE_DEBE_INGRESAR_LA_IDENTIFICACION_DEL_CLIENTE = "Se debe ingresar la identificaci\u00f3n del cliente";
+    private static final String SE_DEBE_INGRESAR_LA_IDENTIFICACION_DEL_CLIENTE = "Se debe ingresar la identificacion del cliente";
     private static final String SE_DEBE_INGRESAR_EL_EMAIL = "Se debe ingresar el email del cliente";
 
 

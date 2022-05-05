@@ -48,4 +48,10 @@ public interface RepositorioCompra {
 	boolean existeExcluyendoId(Long id, LocalDateTime fechaCompra, Long idCliente);
 
 
-	public String cancelarCompra(Long idCompra);}
+
+	/**
+	 * Permite cancelar una compra seteando el total con la multa
+	 * @param compra
+	 */
+    void cancelarCompra(Compra compra);
+}

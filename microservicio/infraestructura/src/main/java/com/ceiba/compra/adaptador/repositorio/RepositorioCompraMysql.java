@@ -15,19 +15,22 @@ public class RepositorioCompraMysql implements RepositorioCompra {
 	private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
 	@SqlStatement(namespace = "compra", value = "crear")
-	private static String sqlCrear;
+	private static String sqlCrearCompra;
 
 	@SqlStatement(namespace = "compra", value = "actualizar")
-	private static String sqlActualizar;
+	private static String sqlActualizarCompra;
 
 	@SqlStatement(namespace = "compra", value = "eliminar")
-	private static String sqlEliminar;
+	private static String sqlEliminarCompra;
 
 	@SqlStatement(namespace = "compra", value = "existe")
-	private static String sqlExiste;
+	private static String sqlExisteCompra;
 
 	@SqlStatement(namespace = "compra", value = "existeExcluyendoId")
-	private static String sqlExisteExcluyendoId;
+	private static String sqlExisteCompraExcluyendoId;
+
+	@SqlStatement(namespace = "compra", value = "cancelar")
+	private static String sqlCancelarCompra;
 
 	
 	public RepositorioCompraMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
@@ -35,14 +38,14 @@ public class RepositorioCompraMysql implements RepositorioCompra {
 	}
 
 	@Override
-	public Long crear(Compra Compra) {
-        return this.customNamedParameterJdbcTemplate.crear(Compra, sqlCrear);
+	public Long crear(Compra compra) {
+        return this.customNamedParameterJdbcTemplate.crear(compra, sqlCrearCompra);
 
 	}
 
 	@Override
-	public void actualizar(Compra Compra) {
-        this.customNamedParameterJdbcTemplate.actualizar(Compra, sqlActualizar);
+	public void actualizar(Compra compra) {
+        this.customNamedParameterJdbcTemplate.actualizar(compra, sqlActualizarCompra);
 		
 	}
 
@@ -51,7 +54,7 @@ public class RepositorioCompraMysql implements RepositorioCompra {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);		
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarCompra, paramSource);
 	}
 
 	@Override
@@ -60,7 +63,7 @@ public class RepositorioCompraMysql implements RepositorioCompra {
         paramSource.addValue("fechaCompra", fechaCompra);
         paramSource.addValue("idCliente", idCliente);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCompra,paramSource, Boolean.class);
 	}
 
 	@Override
@@ -70,13 +73,16 @@ public class RepositorioCompraMysql implements RepositorioCompra {
         paramSource.addValue("fechaCompra", fechaCompra);
         paramSource.addValue("idCliente", idCliente);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCompraExcluyendoId,paramSource, Boolean.class);
 	}
 
 	@Override
-	public String cancelarCompra(Long idCompra) {
-		return null;
+	public void cancelarCompra(Compra compra) {
+
+		 this.customNamedParameterJdbcTemplate.cancelar(compra, sqlCancelarCompra);
 	}
+
+
 
 
 }
