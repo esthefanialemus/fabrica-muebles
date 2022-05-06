@@ -1,10 +1,10 @@
 package com.ceiba.producto.entidad;
 
 import com.ceiba.BasePrueba;
-import com.ceiba.cliente.servicio.testdatabuilder.ClienteTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.producto.modelo.entidad.Producto;
-import com.ceiba.producto.servicio.ProductoTestDataBuilder;
+import com.ceiba.producto.servicio.testdatabuilder.ProductoTestDataBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductoTest {
 
     @Test
+    @DisplayName("Deberia crear correctamente el producto")
     void deberiaCrearCorrectamenteElProducto(){
         Producto producto = new ProductoTestDataBuilder().build();
         assertEquals(325L,producto.getId());
@@ -22,6 +23,7 @@ class ProductoTest {
 
     }
     @Test
+    @DisplayName("Deberia fallar la creacion sin el tipo comedor del producto")
     void deberiaFallarSinTipoComedor(){
         ProductoTestDataBuilder productoTestDataBuilder = new ProductoTestDataBuilder().validarTipoComedor(null);
         BasePrueba.assertThrows(() -> {
@@ -32,6 +34,7 @@ class ProductoTest {
 
     }
     @Test
+    @DisplayName("Deberia fallar la creacion sin el numero de puestos del producto")
     void deberiaFallarSinNumeroPuestos(){
         ProductoTestDataBuilder productoTestDataBuilder = new ProductoTestDataBuilder().validarNumeroPuestos(null);
         BasePrueba.assertThrows(() -> {

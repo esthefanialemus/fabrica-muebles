@@ -6,7 +6,7 @@ import lombok.Getter;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
-public class itemsCompra {
+public class ItemsCompra {
 
     private static final String SE_DEBE_INGRESAR_LA_CANTIDAD_DEL_PRODUCTO = "Se debe ingresar la cantidad del producto";
     private static final String SE_DEBE_ASIGNAR_COMPRA = "Se debe asignar la compra";
@@ -21,7 +21,7 @@ public class itemsCompra {
     private Long idProducto;
 
 
-    public itemsCompra(Long id, Long cantidad, Long idCompra, Long idProducto) {
+    public ItemsCompra(Long id, Long cantidad, Long idCompra, Long idProducto) {
 
 
         validarObligatorio(cantidad, SE_DEBE_INGRESAR_LA_CANTIDAD_DEL_PRODUCTO);

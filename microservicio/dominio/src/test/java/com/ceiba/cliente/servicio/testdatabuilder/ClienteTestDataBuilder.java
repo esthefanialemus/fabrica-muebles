@@ -32,6 +32,11 @@ public class ClienteTestDataBuilder {
         return this;
     }
 
+    public ClienteTestDataBuilder conId(Long id) {
+        this.id = id;
+        return this;
+    }
+
     public ClienteTestDataBuilder validarIdentificacion(String identificacion){
         this.identificacion=identificacion;
         return this;

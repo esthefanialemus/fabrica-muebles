@@ -2,7 +2,7 @@ package com.ceiba.itemsCompra.adaptador.repositorio;
 
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.itemsCompra.modelo.entidad.itemsCompra;
+import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
 import com.ceiba.itemsCompra.puerto.repositorio.RepositorioItemsCompra;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
@@ -32,13 +32,13 @@ public class RepositorioItemsCompraMysql implements RepositorioItemsCompra {
 	}
 
 	@Override
-	public Long crear(itemsCompra ItemsCompra) {
+	public Long crear(ItemsCompra ItemsCompra) {
 		return this.customNamedParameterJdbcTemplate.crear(ItemsCompra, sqlCrear);
 
 	}
 
 	@Override
-	public void actualizar(itemsCompra ItemsCompra) {
+	public void actualizar(ItemsCompra ItemsCompra) {
 		this.customNamedParameterJdbcTemplate.actualizar(ItemsCompra, sqlActualizar);
 
 	}

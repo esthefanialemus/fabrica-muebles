@@ -1,11 +1,10 @@
 package com.ceiba.itemsCompra.entidad;
 
 import com.ceiba.BasePrueba;
-import com.ceiba.compra.modelo.entidad.Compra;
-import com.ceiba.compra.servicio.CompraTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
-import com.ceiba.itemsCompra.modelo.entidad.itemsCompra;
-import com.ceiba.itemsCompra.servicio.ItemTestDataBuilder;
+import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
+import com.ceiba.itemsCompra.servicio.testdatabuilder.ItemTestDataBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class itemsCompraTest {
 
     @Test
+    @DisplayName("Deberia crear  correctamente el item de la compra")
     void deberiaCrearCorrectamenteItemscompra (){
-        itemsCompra itemsCompra = new ItemTestDataBuilder().build();
+        ItemsCompra itemsCompra = new ItemTestDataBuilder().build();
 
         assertEquals(6L, itemsCompra.getId());
         assertEquals(1L, itemsCompra.getCantidad());
@@ -23,6 +23,7 @@ class itemsCompraTest {
 
     }
     @Test
+    @DisplayName("Deberia fallar la creacion sin la cantidad de items de la compra")
     void deberiaFallarSinCantidadItemsProducto() {
         ItemTestDataBuilder itemTestDataBuilder = new ItemTestDataBuilder().validarCantidadItemsProducto(null);
         BasePrueba.assertThrows(() -> {
@@ -34,6 +35,7 @@ class itemsCompraTest {
     }
 
     @Test
+    @DisplayName("Deberia fallar la creacion sin el id de la compra del item")
     void deberiaFallarSinIdCompraItem() {
         ItemTestDataBuilder itemTestDataBuilder = new ItemTestDataBuilder().validarIdCompraItem(null);
         BasePrueba.assertThrows(() -> {
@@ -45,6 +47,7 @@ class itemsCompraTest {
     }
 
     @Test
+    @DisplayName("Deberia fallar la creacion sin el producto del item ")
     void deberiaFallarSinIdProductoItem() {
         ItemTestDataBuilder itemTestDataBuilder = new ItemTestDataBuilder().validarIdProductoItem(null);
         BasePrueba.assertThrows(() -> {

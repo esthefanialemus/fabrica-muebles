@@ -1,7 +1,7 @@
 package com.ceiba.itemsCompra.servicio;
 
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.itemsCompra.modelo.entidad.itemsCompra;
+import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
 import com.ceiba.itemsCompra.puerto.repositorio.RepositorioItemsCompra;
 
 public class ServicioActualizarItemsCompra {
@@ -14,14 +14,14 @@ public class ServicioActualizarItemsCompra {
 		this.repositorioItemsCompra = repositorioItemsCompra;
 	}
 
-	public Long ejecutar(itemsCompra itemsCompra) {
+	public Long ejecutar(ItemsCompra itemsCompra) {
 		validarExistenciaPrevia(itemsCompra);
 
 
 		return this.repositorioItemsCompra.crear(itemsCompra);
 	}
 
-	private void validarExistenciaPrevia(itemsCompra itemsCompra) {
+	private void validarExistenciaPrevia(ItemsCompra itemsCompra) {
 		boolean existe = this.repositorioItemsCompra.existeExcluyendoId(itemsCompra.getId(),
 				itemsCompra.getIdCompra());
 		if (existe) {

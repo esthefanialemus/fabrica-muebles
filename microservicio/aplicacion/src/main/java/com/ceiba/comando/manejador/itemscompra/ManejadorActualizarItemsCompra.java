@@ -2,7 +2,7 @@ package com.ceiba.comando.manejador.itemscompra;
 
 import com.ceiba.comando.ComandoItemsCompra;
 import com.ceiba.comando.fabrica.FabricaItemsCompra;
-import com.ceiba.itemsCompra.modelo.entidad.itemsCompra;
+import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
 import com.ceiba.itemsCompra.servicio.ServicioActualizarItemsCompra;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class ManejadorActualizarItemsCompra implements ManejadorComando<ComandoI
     }
 
     public void ejecutar(ComandoItemsCompra comandoItemsCompra) {
-        itemsCompra itemsCompra = this.fabricaItemsCompra.crear(comandoItemsCompra);
+        ItemsCompra itemsCompra = this.fabricaItemsCompra.crear(comandoItemsCompra);
         this.servicioActualizarItemsCompra.ejecutar(itemsCompra);
     }
 }

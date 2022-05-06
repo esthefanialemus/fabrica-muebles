@@ -12,7 +12,6 @@ import java.util.Date;
 public class ServicioCrearCompra {
 
 	private static final String LA_COMPRA_YA_EXISTE_EN_EL_SISTEMA = "la Compra ya existe en el sistema";
-	private static final String LA_COMPRA_NO_SE_REALIZA_FESTIVO = "la Compra no se puede realizar ya que es Festivo";
 
 	private static final String LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION = "la Compra no se puede realizar fuera de nuestro horario de atencion";
 
@@ -57,10 +56,6 @@ public class ServicioCrearCompra {
 	}
 
 
-	private void asignarRecargoInstalacion(){
-
-	}
-
 
 	private boolean verificarFinDeSemana(Compra compra) {
 
@@ -94,29 +89,5 @@ public class ServicioCrearCompra {
 		return (int)Math.floor(Math.random()*(DIAS_MAXIMOS_FECHAS - DIAS_MINIMOS_FECHAS +CONSTANTE_NUMERICA)+ DIAS_MINIMOS_FECHAS);
 	}
 
-/**
 
-
-
-	private void asignarFechaEntrega(Compra compra) {
-		int cantidadDias = obtenerDiasFechaEntrega();
-		compra.setFechaEntrega(compra.getFechaCompra().plusDays(cantidadDias));
-	}
-
-	private int obtenerDiasFechaEntrega() {
-		return (int)Math.floor(Math.random()*(DIAS_MAXIMOS_FECHA_COMPRA-DIAS_MINIMOS_FECHA_COMPRA+CONSTANTE_NUMERICA)+DIAS_MINIMOS_FECHA_COMPRA);
-	}
-
- private void validarDiaFestivo(Compra compra, List<DtoParametro> ListDtoParametro) {
- final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
- for (DtoParametro dtoParametro : ListDtoParametro) {
- if (compra.getFechaCompra().toLocalDate().isEqual(LocalDate.parse(dtoParametro.getValor(), formatter))) {
- throw new ExcepcionDiaFestivo(LA_COMPRA_NO_SE_REALIZA_FESTIVO);
- }
-
- }
- }
-
- */
 }

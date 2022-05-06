@@ -1,6 +1,6 @@
 package com.ceiba.itemsCompra.puerto.repositorio;
 
-import com.ceiba.itemsCompra.modelo.entidad.itemsCompra;
+import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
 
 public interface RepositorioItemsCompra {
     /**
@@ -9,14 +9,14 @@ public interface RepositorioItemsCompra {
      * @param ItemsCompra
      * @return el id generado
      */
-    Long crear(itemsCompra ItemsCompra);
+    Long crear(ItemsCompra ItemsCompra);
 
     /**
      * Permite actualizar un ItemsCompra
      *
      * @param ItemsCompra
      */
-    void actualizar(itemsCompra ItemsCompra);
+    void actualizar(ItemsCompra ItemsCompra);
 
     /**
      * Permite eliminar un ItemsCompra

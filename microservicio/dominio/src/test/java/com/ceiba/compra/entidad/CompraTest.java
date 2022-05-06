@@ -2,8 +2,9 @@ package com.ceiba.compra.entidad;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.compra.modelo.entidad.Compra;
-import com.ceiba.compra.servicio.CompraTestDataBuilder;
+import com.ceiba.compra.servicio.testdatabuilder.CompraTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CompraTest {
 
     @Test
+    @DisplayName("Deberia crear correctamente la compra")
     void deberiaCrearcorrectamenteLaCompra() {
         LocalDateTime fechaCompra = LocalDateTime.now();
         LocalDateTime despachoCompra = LocalDateTime.now().plusDays(4);
@@ -27,6 +29,7 @@ class CompraTest {
     }
 
     @Test
+    @DisplayName("Deberia fallar la creacion sin el id del cliente")
     void deberiaFallarSinCliente() {
         CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().validarCliente(null);
         BasePrueba.assertThrows(() -> {
@@ -39,6 +42,7 @@ class CompraTest {
 
 
         @Test
+        @DisplayName("Deberia fallar la creacion sin el total de la compra")
         void deberiaFallarSinTotalCompra(){
             CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().validarTotalCompra(null);
             BasePrueba.assertThrows(() -> {
@@ -50,6 +54,7 @@ class CompraTest {
         }
 
     @Test
+    @DisplayName("Deberia fallar la creacion sin la fecha de la compra")
     void deberiaFallarSinFechaCompra() {
         CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().validarFechaCompra(null);
         BasePrueba.assertThrows(() -> {
@@ -61,6 +66,7 @@ class CompraTest {
     }
 
     @Test
+    @DisplayName("Deberia fallar la creacion sin la fecha de despacho del cliente")
     void deberiaFallarSinFechaDespacho() {
         CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().validarFechaDespacho(null);
         BasePrueba.assertThrows(() -> {

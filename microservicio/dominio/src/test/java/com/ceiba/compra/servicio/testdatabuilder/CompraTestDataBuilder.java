@@ -1,4 +1,4 @@
-package com.ceiba.compra.servicio;
+package com.ceiba.compra.servicio.testdatabuilder;
 
 import com.ceiba.compra.modelo.entidad.Compra;
 
@@ -16,7 +16,7 @@ public class CompraTestDataBuilder {
        id=2L;
        idCliente=1L;
         total=800.000;
-       fechaCompra = LocalDateTime.now();
+       fechaCompra = LocalDateTime.parse("2022-05-18T09:12:43");
        fechaDespacho=LocalDateTime.now().plusDays(4);
        fechaEntrega=LocalDateTime.now().plusDays(7);
     }

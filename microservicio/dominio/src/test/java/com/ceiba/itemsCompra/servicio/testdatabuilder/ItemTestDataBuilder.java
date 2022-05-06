@@ -1,7 +1,6 @@
-package com.ceiba.itemsCompra.servicio;
+package com.ceiba.itemsCompra.servicio.testdatabuilder;
 
-import com.ceiba.cliente.servicio.testdatabuilder.ClienteTestDataBuilder;
-import com.ceiba.itemsCompra.modelo.entidad.itemsCompra;
+import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
 
 public class ItemTestDataBuilder {
 
@@ -34,7 +33,7 @@ public class ItemTestDataBuilder {
         return this;
     }
 
-    public itemsCompra build (){
-        return  new itemsCompra(id,cantidad,idCompra,idProducto);
+    public ItemsCompra build (){
+        return  new ItemsCompra(id,cantidad,idCompra,idProducto);
     }
 }
