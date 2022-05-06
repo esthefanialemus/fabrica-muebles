@@ -1,7 +1,7 @@
 package com.ceiba.comando.fabrica;
 
 import com.ceiba.comando.ComandoItemsCompra;
-import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
+import com.ceiba.items_compra.modelo.entidad.ItemsCompra;
 import org.springframework.stereotype.Component;
 
 @Component

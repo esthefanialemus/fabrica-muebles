@@ -1,8 +1,8 @@
 
 package com.ceiba.consulta.itemscompra;
 
-import com.ceiba.itemsCompra.modelo.dto.DtoItemsCompra;
-import com.ceiba.itemsCompra.puerto.dao.DaoItemsCompra;
+import com.ceiba.items_compra.modelo.dto.DtoItemsCompra;
+import com.ceiba.items_compra.puerto.dao.DaoItemsCompra;
 import org.springframework.stereotype.Component;
 
 @Component

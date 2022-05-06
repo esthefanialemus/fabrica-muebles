@@ -28,13 +28,5 @@ public class DaoUsuarioMysql implements DaoUsuario {
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoUsuario());
     }
 
-    @Override
-    public DtoUsuario obtener(Long id) {
-        return null;
-    }
 
-    @Override
-    public DtoUsuario obtenerPorNombre(String nombre) {
-        return null;
-    }
 }

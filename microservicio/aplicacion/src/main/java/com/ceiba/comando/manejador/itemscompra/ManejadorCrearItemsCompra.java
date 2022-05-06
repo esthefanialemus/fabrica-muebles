@@ -3,8 +3,8 @@ package com.ceiba.comando.manejador.itemscompra;
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.comando.ComandoItemsCompra;
 import com.ceiba.comando.fabrica.FabricaItemsCompra;
-import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
-import com.ceiba.itemsCompra.servicio.ServicioCrearItemsCompra;
+import com.ceiba.items_compra.modelo.entidad.ItemsCompra;
+import com.ceiba.items_compra.servicio.ServicioCrearItemsCompra;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import org.springframework.stereotype.Component;
 

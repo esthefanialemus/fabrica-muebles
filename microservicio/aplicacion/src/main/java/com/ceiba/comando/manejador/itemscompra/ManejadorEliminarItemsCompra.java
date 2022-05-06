@@ -1,7 +1,7 @@
 
 package com.ceiba.comando.manejador.itemscompra;
 
-import com.ceiba.itemsCompra.servicio.ServicioEliminarItemsCompra;
+import com.ceiba.items_compra.servicio.ServicioEliminarItemsCompra;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ManejadorEliminarItemsCompra implements ManejadorComando<Long> {
 
-    private final com.ceiba.itemsCompra.servicio.ServicioEliminarItemsCompra ServicioEliminarItemsCompra;
+    private final com.ceiba.items_compra.servicio.ServicioEliminarItemsCompra ServicioEliminarItemsCompra;
 
     public ManejadorEliminarItemsCompra(ServicioEliminarItemsCompra ServicioEliminarItemsCompra) {
         this.ServicioEliminarItemsCompra = ServicioEliminarItemsCompra;

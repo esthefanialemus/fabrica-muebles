@@ -2,8 +2,8 @@ package com.ceiba.comando.manejador.itemscompra;
 
 import com.ceiba.comando.ComandoItemsCompra;
 import com.ceiba.comando.fabrica.FabricaItemsCompra;
-import com.ceiba.itemsCompra.modelo.entidad.ItemsCompra;
-import com.ceiba.itemsCompra.servicio.ServicioActualizarItemsCompra;
+import com.ceiba.items_compra.modelo.entidad.ItemsCompra;
+import com.ceiba.items_compra.servicio.ServicioActualizarItemsCompra;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 
