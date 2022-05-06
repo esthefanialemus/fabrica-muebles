@@ -17,16 +17,11 @@ import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 import com.ceiba.producto.servicio.ServicioActualizarProducto;
 import com.ceiba.producto.servicio.ServicioCrearProducto;
 import com.ceiba.producto.servicio.ServicioEliminarProducto;
-import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
-import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
-import com.ceiba.usuario.servicio.ServicioCrearUsuario;
-import com.ceiba.usuario.servicio.ServicioEliminarUsuario;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanServicio {
-
 
 
     /*
@@ -50,26 +45,6 @@ public class BeanServicio {
     }
 
 
-    /*
-     *
-     * SERVICIOS DEL USUARIO
-     *
-     */
-
-    @Bean
-    public ServicioCrearUsuario servicioCrearUsuario(RepositorioUsuario repositorioUsuario) {
-        return new ServicioCrearUsuario(repositorioUsuario);
-    }
-
-    @Bean
-    public ServicioEliminarUsuario servicioEliminarUsuario(RepositorioUsuario repositorioUsuario) {
-        return new ServicioEliminarUsuario(repositorioUsuario);
-    }
-
-    @Bean
-    public ServicioActualizarUsuario servicioActualizarUsuario(RepositorioUsuario repositorioUsuario) {
-        return new ServicioActualizarUsuario(repositorioUsuario);
-    }
 
 
     /*
@@ -110,7 +85,7 @@ public class BeanServicio {
 
     @Bean
     public ServicioActualizarCompra servicioActualizarCompra(RepositorioCompra repositorioCompra, DaoCompra daoCompra) {
-        return new ServicioActualizarCompra(repositorioCompra,daoCompra);
+        return new ServicioActualizarCompra(repositorioCompra, daoCompra);
     }
 
     /*
