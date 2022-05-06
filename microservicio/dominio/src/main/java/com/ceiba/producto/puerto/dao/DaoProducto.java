@@ -1,6 +1,5 @@
 package com.ceiba.producto.puerto.dao;
 
-import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.producto.modelo.dto.DtoProducto;
 
 import java.util.List;

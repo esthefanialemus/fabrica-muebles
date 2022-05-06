@@ -8,17 +8,17 @@ public interface RepositorioCompra {
 	/**
 	 * Permite crear una Compra
 	 * 
-	 * @param Compra
+	 * @param compra
 	 * @return el id generado
 	 */
-	Long crear(Compra Compra);
+	Long crear(Compra compra);
 
 	/**
 	 * Permite actualizar una Compra
 	 * 
-	 * @param Compra
+	 * @param compra
 	 */
-	void actualizar(Compra Compra);
+	void actualizar(Compra compra);
 
 	/**
 	 * Permite eliminar una Compra

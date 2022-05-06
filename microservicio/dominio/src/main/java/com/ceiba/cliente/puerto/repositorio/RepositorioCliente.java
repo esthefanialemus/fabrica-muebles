@@ -7,20 +7,20 @@ public interface RepositorioCliente {
     /**
      * Permite crear un Cliente
      *
-     * @param Cliente
+     * @param cliente
      * @return el id generado
      */
-    Long crear(Cliente Cliente);
+    Long crear(Cliente cliente);
 
     /**
-     * Permite actualizar un Cliente
+     * Permite actualizar un cliente
      *
-     * @param Cliente
+     * @param cliente
      */
-    void actualizar(Cliente Cliente);
+    void actualizar(Cliente cliente);
 
     /**
-     * Permite eliminar un Cliente
+     * Permite eliminar un cliente
      *
      * @param id
      */

@@ -19,9 +19,7 @@ public class DaoProductoMysql implements DaoProducto {
     @SqlStatement(namespace="producto", value="obtener")
     private static String sqlObtener;
 
-  /*  @SqlStatement(namespace="producto", value="obtenerPorProducto")
-    private static String sqlObtenerPorProducto;
-*/
+
     public DaoProductoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
