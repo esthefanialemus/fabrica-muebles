@@ -73,7 +73,7 @@ class CompraTest {
                     compraTestDataBuilder.build();
 
                 },
-                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de despacho");
+                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha despacho de despacho");
 
     }
 
@@ -84,7 +84,7 @@ class CompraTest {
                     compraTestDataBuilder.build();
 
                 },
-                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de entrega");
+                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha entrega de entrega");
 
     }
 
