@@ -22,7 +22,30 @@ public class ClienteTestDataBuilder {
           fechaCreacion=LocalDateTime.now();
     }
 
+    public ClienteTestDataBuilder validarNombre(String nombre){
+        this.nombre=nombre;
+        return this;
+    }
+
+    public ClienteTestDataBuilder validarApellido(String apellido){
+        this.apellido=apellido;
+        return this;
+    }
+
+    public ClienteTestDataBuilder validarIdentificacion(String identificacion){
+        this.identificacion=identificacion;
+        return this;
+    }
+
+    public ClienteTestDataBuilder validarEmail(String email){
+        this.email=email;
+        return this;
+    }
+
+
     public Cliente build (){
         return new Cliente(id,nombre,apellido,identificacion,email,fechaCreacion);
     }
+
+
 }

@@ -31,7 +31,6 @@ public class Cliente {
 
         validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
         validarObligatorio(apellido, SE_DEBE_INGRESAR_LOS_APELLIDOS_DEL_CLIENTE);
-        validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION);
         validarObligatorio(identificacion, SE_DEBE_INGRESAR_LA_IDENTIFICACION_DEL_CLIENTE);
         validarObligatorio(email, SE_DEBE_INGRESAR_EL_EMAIL);
 

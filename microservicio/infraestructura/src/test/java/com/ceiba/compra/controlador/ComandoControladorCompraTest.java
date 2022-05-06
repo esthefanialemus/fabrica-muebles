@@ -34,9 +34,9 @@ class ComandoControladorCompraTest {
 
     @Test
     void crear() throws Exception {
-
+        LocalDateTime fechaCompra= LocalDateTime.parse("2022-05-17T09:12:43"); ;
         // arrange
-        ComandoCompra comandoCompra = new ComandoCompraTestDataBuilder().conFechaEntregaCompraYCliente(2L, LocalDateTime.now().plusDays(1),LocalDateTime.now().plusDays(2)).build();
+        ComandoCompra comandoCompra = new ComandoCompraTestDataBuilder().conFechaEntregaCompraYCliente(2L, fechaCompra,fechaCompra.plusDays(2)).build();
 
         // act - assert
         mocMvc.perform(post("/compra")

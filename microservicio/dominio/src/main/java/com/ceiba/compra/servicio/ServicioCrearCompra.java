@@ -25,7 +25,7 @@ public class ServicioCrearCompra {
 	private static final Double RECARGO_FIN_DE_SEMANA = 0.24 ;
 
 	private static final int HORA_ENTRADA = 8 ;
-	private static final int HORA_SALIDA = 7 ;
+	private static final int HORA_SALIDA = 19 ;
 
 	private static final int DIAS_MINIMOS_FECHAS = 5;
 	private static final int DIAS_MAXIMOS_FECHAS = 8;

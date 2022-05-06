@@ -18,7 +18,7 @@ public class ComandoCompraTestDataBuilder {
 
 		idCliente = 1L;
 		total = 250000D;
-		fechaCompra = LocalDateTime.now();
+		fechaCompra = LocalDateTime.parse("2022-05-17T09:12:43"); ;
 		fechaDespacho = LocalDateTime.now().plusDays(4);
 		fechaEntrega = LocalDateTime.now().plusDays(6);
 

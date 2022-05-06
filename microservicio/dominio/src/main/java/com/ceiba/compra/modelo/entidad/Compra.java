@@ -15,7 +15,7 @@ public class Compra {
     private static final String SE_DEBE_INGRESAR_LA_FECHA_ENTREGA = "Se debe ingresar la fecha de entrega";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DESPACHO = "Se debe ingresar la fecha de despacho";
     private static final String SE_DEBE_INGRESAR_EL_PRECIO_TOTAL_COMPRA = "Se debe ingresar el precio total de la compra";
-    private static final String SE_DEBE_INGRESAR_EL_CLIENTE = "Se debe ingresar el cliente de la compra";
+    private static final String SE_DEBE_INGRESAR_EL_CLIENTE = "Se debe ingresar el cliente a la compra";
 
 
     private Long id;
