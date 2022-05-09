@@ -18,7 +18,7 @@ class ClienteTest {
         assertEquals(15684L,cliente.getId());
         assertEquals("Esthef",cliente.getNombre());
         assertEquals("Preciado",cliente.getApellido());
-        assertEquals("1234",cliente.getIdentificacion());
+        assertEquals("1094972643L",cliente.getIdentificacion());
         assertEquals("l@gmail.com",cliente.getEmail());
 
     }
