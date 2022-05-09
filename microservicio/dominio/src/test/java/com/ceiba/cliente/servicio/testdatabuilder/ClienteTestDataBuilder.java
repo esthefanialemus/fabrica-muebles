@@ -17,7 +17,7 @@ public class ClienteTestDataBuilder {
           id= 15684L;
           nombre="Esthef";
           apellido="Preciado";
-          identificacion="1234";
+          identificacion="1094972643L";
           email="l@gmail.com";
           fechaCreacion=LocalDateTime.now();
     }
@@ -31,9 +31,12 @@ public class ClienteTestDataBuilder {
         this.apellido=apellido;
         return this;
     }
-
     public ClienteTestDataBuilder conId(Long id) {
         this.id = id;
+        return this;
+    }
+    public ClienteTestDataBuilder conIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
         return this;
     }
 

@@ -16,6 +16,7 @@ public interface RepositorioCliente {
      * Permite actualizar un cliente
      *
      * @param cliente
+     * @return el id generado
      */
     void actualizar(Cliente cliente);
 
