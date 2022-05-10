@@ -22,7 +22,7 @@ public class ServicioActualizarItemsCompra {
 	}
 
 	private void validarExistenciaPrevia(ItemsCompra itemsCompra) {
-		boolean existe = this.repositorioItemsCompra.existeExcluyendoId(itemsCompra.getId(),
+		boolean existe = this.repositorioItemsCompra.existe(
 				itemsCompra.getIdCompra());
 		if (existe) {
 			throw new ExcepcionDuplicidad(ESTOS_ITEMS_YA_EXISTE_EN_EL_SISTEMA);

@@ -15,7 +15,7 @@ class ServicioCrearClienteTest {
 
     @Test
     @DisplayName("Deberia lanzar una excepcion cuando el cliente ya exista")
-    void deberiaValidarExistenciaPreviaDelUsuario(){
+    void deberiaValidarExistenciaPreviaDelCliente(){
 
         // arrange
         Cliente cliente = new ClienteTestDataBuilder().build();
@@ -28,7 +28,7 @@ class ServicioCrearClienteTest {
 
     @Test
     @DisplayName("Deberia crear al cliente de manera correcta")
-    void deberiaCrearAlUsuarioCorrectamente(){
+    void deberiaCrearAClienteCorrectamente(){
 
         // arrange
         Cliente cliente = new ClienteTestDataBuilder().build();

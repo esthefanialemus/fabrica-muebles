@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ServicioActualizarProductoTest {
 
     @Test
-    @DisplayName("Deberia lanzar una excepcion cuando el producto  ya exista")
-    void deberiaValidarExistenciaPreviaDelProducto(){
+    @DisplayName("Deberia actualizar el producto")
+    void deberiaActualizarElProducto(){
 
         // arrange
         Producto producto = new ProductoTestDataBuilder().build();
