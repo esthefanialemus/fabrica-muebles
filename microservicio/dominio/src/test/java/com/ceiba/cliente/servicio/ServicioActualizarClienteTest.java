@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ServicioActualizarClienteTest {
 
     @Test
-    @DisplayName("Deberia actualizar y lanzar una excepcion cuando el cliente ya exista")
-    void deberiaValidarExistenciaPreviaYCrearUsuario(){
+    @DisplayName("Deberia actualizar y lanzar una excepcion cuando el cliente ya exista y posterior a ello actualizarlo")
+    void deberiaValidarExistenciaPreviaYActualizarUsuario(){
 
         // arrange
         Cliente cliente = new ClienteTestDataBuilder().conId(123L).conIdentificacion("1234").build();

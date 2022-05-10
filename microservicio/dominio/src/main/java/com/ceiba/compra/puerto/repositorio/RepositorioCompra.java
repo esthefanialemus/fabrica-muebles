@@ -49,6 +49,7 @@ public interface RepositorioCompra {
 
 
 
+
 	/**
 	 * Permite cancelar una compra seteando el total con la multa
 	 * @param compra

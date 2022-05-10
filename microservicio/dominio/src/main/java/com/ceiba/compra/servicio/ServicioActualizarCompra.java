@@ -23,6 +23,7 @@ public class ServicioActualizarCompra {
 		this.daoCompra=daoCompra;
 	}
 
+
 	public void ejecutar(Compra compra) {
 		DtoCompra dtoCompra = daoCompra.listarCompraPorId(compra.getId());
 
