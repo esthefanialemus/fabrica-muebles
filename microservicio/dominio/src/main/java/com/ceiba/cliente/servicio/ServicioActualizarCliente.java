@@ -23,6 +23,8 @@ public class ServicioActualizarCliente {
         boolean existe = this.repositorioCliente.existe(cliente.getIdentificacion());
         if(existe) {
             throw new ExcepcionDuplicidad(EL_CLIENTE_EXISTE_EN_EL_SISTEMA);
+        }else{
+            ejecutar(cliente);
         }
     }
 }
