@@ -22,14 +22,8 @@ public class ServicioActualizarCliente {
     }
 
     private boolean validarExistenciaPrevia(Cliente cliente) {
-        boolean existe =false ;
-        if(this.repositorioCliente.existe(cliente.getIdentificacion())) {
-            existe=true;
+        return (this.repositorioCliente.existe(cliente.getIdentificacion())) ;
 
-        }else{
-            existe=false;
-        }
-        return existe;
 
     }
 }
