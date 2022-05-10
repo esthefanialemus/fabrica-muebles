@@ -15,17 +15,14 @@ public class ServicioActualizarCliente {
     }
 
     public void ejecutar(Cliente cliente) {
-        if(validarExistenciaPrevia(cliente)){
-            throw new ExcepcionDuplicidad(EL_CLIENTE_EXISTE_EN_EL_SISTEMA);
-        }else{
-            this.repositorioCliente.actualizar(cliente);
-        }
-
+        validarExistenciaPrevia(cliente);
+        this.repositorioCliente.actualizar(cliente);
     }
 
-    private boolean validarExistenciaPrevia(Cliente cliente) {
-        return (this.repositorioCliente.existe(cliente.getIdentificacion())) ;
-
-
+    private void validarExistenciaPrevia(Cliente cliente) {
+        boolean existe = this.repositorioCliente.existe(cliente.getIdentificacion());
+        if(existe) {
+            throw new ExcepcionDuplicidad(EL_CLIENTE_EXISTE_EN_EL_SISTEMA);
+        }
     }
 }
