@@ -71,6 +71,18 @@ class ClienteTest {
 
     }
 
+    @Test
+    @DisplayName("Deberia fallar la creacion sin el fecha de creacion del cliente")
+    void deberiaFallarSinFechaCreacion(){
+        ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().validarFechaCreacion(null);
+        BasePrueba.assertThrows(() -> {
+                    clienteTestDataBuilder.build();
+
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de creación");
+
+    }
+
 
 
 

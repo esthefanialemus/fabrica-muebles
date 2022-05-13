@@ -50,6 +50,12 @@ public class ClienteTestDataBuilder {
         return this;
     }
 
+    public ClienteTestDataBuilder validarFechaCreacion(LocalDateTime fechaCreacion){
+        this.fechaCreacion=fechaCreacion;
+        return this;
+    }
+
+
 
     public Cliente build (){
         return new Cliente(id,nombre,apellido,identificacion,email,fechaCreacion);

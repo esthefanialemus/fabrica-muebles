@@ -105,7 +105,7 @@ class CompraTest {
 
     }
 
-  
+
     @Test
     @DisplayName("Deberia alertar si es fin de semana la compra")
 
