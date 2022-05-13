@@ -14,20 +14,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ServicioActualizarProductoTest {
 
     @Test
-    @DisplayName("Deberia actualizar el producto")
-    void deberiaActualizarElProducto(){
+    @DisplayName("Deberia validar si el producto existe")
+    void validarExistenciaPrevia(){
 
         // arrange
         Producto producto = new ProductoTestDataBuilder().build();
 
         RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
-        Mockito.when(repositorioProducto.existe(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioProducto.existe(Mockito.anyLong())).thenReturn(false);
         ServicioActualizarProducto servicioActualizarProducto = new ServicioActualizarProducto(repositorioProducto);
         // act - assert
-        BasePrueba.assertThrows(() -> servicioActualizarProducto.ejecutar(producto), ExcepcionDuplicidad.class,"El Producto ya existe en el sistema");
+        BasePrueba.assertThrows(() -> servicioActualizarProducto.ejecutar(producto), ExcepcionDuplicidad.class,"El Producto no existe en el sistema");
     }
 
 
+    @Test
+    @DisplayName("Deberia actualizar correctamente en el repositorio")
+    void deberiaActualizarCorrectamenteEnElRepositorio() {
+
+        Producto producto = new ProductoTestDataBuilder().validarId(1L).build();
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        Mockito.when(repositorioProducto.existe(Mockito.anyLong())).thenReturn(true);
+        ServicioActualizarProducto servicioActualizarProducto = new ServicioActualizarProducto(repositorioProducto);
+
+        servicioActualizarProducto.ejecutar(producto);
+
+        Mockito.verify(repositorioProducto, Mockito.times(1)).actualizar(producto);
+    }
 
 
 

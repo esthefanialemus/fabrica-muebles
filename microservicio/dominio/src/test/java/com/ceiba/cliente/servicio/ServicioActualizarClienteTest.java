@@ -14,20 +14,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ServicioActualizarClienteTest {
 
     @Test
-    @DisplayName("Deberia actualizar y lanzar una excepcion cuando el cliente ya exista y posterior a ello actualizarlo")
-    void deberiaValidarExistenciaPreviaYActualizarUsuario(){
+    @DisplayName("Deberia actualizar y lanzar una excepcion cuando el cliente ya exista ")
+    void deberiaValidarExistenciaPrevia(){
 
         // arrange
-        Cliente cliente = new ClienteTestDataBuilder().conId(123L).conIdentificacion("1234").build();
+        Cliente cliente = new ClienteTestDataBuilder().conIdentificacion("1094972643").build();
 
         RepositorioCliente repositorioCliente = Mockito.mock(RepositorioCliente.class);
-        Mockito.when(repositorioCliente.existe(Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioCliente.existe("1094972643")).thenReturn(true);
         ServicioActualizarCliente servicioActualizarCliente = new ServicioActualizarCliente(repositorioCliente);
         // act - assert
         BasePrueba.assertThrows(() -> servicioActualizarCliente.ejecutar(cliente), ExcepcionDuplicidad.class,"El Cliente ya existe en el sistema");
     }
 
-
+    @Test
+    @DisplayName("Deberia actualizar correctamente en el repositorio")
+    void deberiaActualizarCorrectamenteEnElRepositorio() {
+        // arrange
+        Cliente cliente = new ClienteTestDataBuilder().conId(123L).build();
+        RepositorioCliente repositorioCliente = Mockito.mock(RepositorioCliente.class);
+        Mockito.when(repositorioCliente.existe(Mockito.anyString())).thenReturn(false);
+        ServicioActualizarCliente servicioActualizarCliente = new ServicioActualizarCliente(repositorioCliente);
+        // act
+        servicioActualizarCliente.ejecutar(cliente);
+        //assert
+        Mockito.verify(repositorioCliente,Mockito.times(1)).actualizar(cliente);
+    }
 
 
 

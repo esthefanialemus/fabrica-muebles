@@ -28,7 +28,20 @@ class ServicioActualizarItemsCompraTest {
     }
 
 
+    @Test
+    @DisplayName("Deberia actualizar correctamente en el repositorio")
+    void deberiaActualizarCorrectamenteEnElRepositorio() {
 
+
+        ItemsCompra itemsCompra = new ItemTestDataBuilder().validarId(6L).build();
+        RepositorioItemsCompra repositorioItemsCompra = Mockito.mock(RepositorioItemsCompra.class);
+        Mockito.when(repositorioItemsCompra.existe(Mockito.anyLong())).thenReturn(false);
+        ServicioActualizarItemsCompra servicioActualizarItemsCompra = new ServicioActualizarItemsCompra(repositorioItemsCompra);
+
+        servicioActualizarItemsCompra.ejecutar(itemsCompra);
+
+        Mockito.verify(repositorioItemsCompra, Mockito.times(1)).actualizar(itemsCompra);
+    }
 
 
 }

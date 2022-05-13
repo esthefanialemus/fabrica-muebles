@@ -1,7 +1,7 @@
 update itemsCompra
 set cantidad = :cantidad,
 	idCompra = :idCompra,
-	idProducto =:idProducto,
-		valor = :valor
+	idProducto =:idProducto
+
 
 where id = :id

@@ -4,6 +4,7 @@ import com.ceiba.ApplicationMock;
 import com.ceiba.comando.ComandoCliente;
 import com.ceiba.cliente.servicio.ComandoClienteTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,12 +55,13 @@ public class ComandoControladorClienteTest  {
     }
 
     @Test
+    @DisplayName("Deberia actualizar un usuario")
     void actualizar() throws Exception {
         // arrange
         ComandoCliente comandoCliente = new ComandoClienteTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/cliente/{id}",3)
+        mocMvc.perform(put("/cliente/{id}", 1L)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());

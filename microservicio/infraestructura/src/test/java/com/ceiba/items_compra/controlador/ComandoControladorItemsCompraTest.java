@@ -52,7 +52,7 @@ class ComandoControladorItemsCompraTest {
     @Test
     void actualizar() throws Exception {
         // arrange
-        Long id = 1L;
+        Long id = 6L;
         ComandoItemsCompra itemsCompra = new ComandoItemsCompraTestDataBuilder().build();
 
         // act - assert

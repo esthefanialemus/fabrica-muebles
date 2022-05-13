@@ -18,6 +18,11 @@ public class ItemTestDataBuilder {
 
     }
 
+    public ItemTestDataBuilder validarId(Long id){
+        this.id=id;
+        return this;
+    }
+
     public ItemTestDataBuilder validarCantidadItemsProducto(Long cantidad){
         this.cantidad=cantidad;
         return this;

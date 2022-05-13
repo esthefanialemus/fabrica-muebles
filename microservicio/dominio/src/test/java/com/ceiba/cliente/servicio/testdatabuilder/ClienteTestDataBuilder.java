@@ -17,7 +17,7 @@ public class ClienteTestDataBuilder {
           id= 15684L;
           nombre="Esthef";
           apellido="Preciado";
-          identificacion="1094972643L";
+          identificacion="1094972643";
           email="l@gmail.com";
           fechaCreacion=LocalDateTime.now();
     }

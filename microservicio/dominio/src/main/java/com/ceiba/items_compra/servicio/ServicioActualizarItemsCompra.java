@@ -14,11 +14,11 @@ public class ServicioActualizarItemsCompra {
 		this.repositorioItemsCompra = repositorioItemsCompra;
 	}
 
-	public Long ejecutar(ItemsCompra itemsCompra) {
+	public void ejecutar(ItemsCompra itemsCompra) {
 		validarExistenciaPrevia(itemsCompra);
 
 
-		return this.repositorioItemsCompra.crear(itemsCompra);
+		 this.repositorioItemsCompra.actualizar(itemsCompra);
 	}
 
 	private void validarExistenciaPrevia(ItemsCompra itemsCompra) {

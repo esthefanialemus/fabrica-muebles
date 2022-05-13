@@ -1,5 +1,6 @@
 package com.ceiba.producto.servicio.testdatabuilder;
 
+import com.ceiba.items_compra.servicio.testdatabuilder.ItemTestDataBuilder;
 import com.ceiba.producto.modelo.entidad.Producto;
 
 public class ProductoTestDataBuilder {
@@ -17,6 +18,10 @@ public class ProductoTestDataBuilder {
 
     }
 
+    public ProductoTestDataBuilder validarId(Long id){
+        this.id=id;
+        return this;
+    }
     public ProductoTestDataBuilder validarNumeroPuestos(String numeroPuesto){
         this.numeroPuesto=numeroPuesto;
         return this;

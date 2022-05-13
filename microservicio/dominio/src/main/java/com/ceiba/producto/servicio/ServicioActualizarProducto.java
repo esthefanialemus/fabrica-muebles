@@ -6,7 +6,7 @@ import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 
 public class ServicioActualizarProducto {
 
-    private static final String EL_PRODUCTO_YA_EXISTE_EN_EL_SISTEMA = "El Producto ya existe en el sistema";
+    private static final String EL_PRODUCTO_NO_EXISTE_EN_EL_SISTEMA = "El Producto no existe en el sistema";
 
     private final RepositorioProducto repositorioProducto;
 
@@ -23,8 +23,8 @@ public class ServicioActualizarProducto {
 
     private void validarExistenciaPrevia(Producto producto) {
         boolean existe = this.repositorioProducto.existe(producto.getId());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_PRODUCTO_YA_EXISTE_EN_EL_SISTEMA);
+        if(!existe) {
+            throw new ExcepcionDuplicidad(EL_PRODUCTO_NO_EXISTE_EN_EL_SISTEMA);
         }
     }
 }
