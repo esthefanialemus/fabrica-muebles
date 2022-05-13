@@ -13,17 +13,7 @@ public class ServicioCrearCompra {
 
 	private static final String LA_COMPRA_YA_EXISTE_EN_EL_SISTEMA = "la Compra ya existe en el sistema";
 
-	private static final Double LA_COMPRA_ES_CERO = 0.0 ;
 
-
-	private static final int CANTIDAD_DIAS_DESPACHO_COMPRA = 3 ;
-	private static final Double RECARGO_FIN_DE_SEMANA = 0.24 ;
-
-
-	private static final int DIAS_MINIMOS_FECHAS = 5;
-	private static final int DIAS_MAXIMOS_FECHAS = 8;
-
-	private static final int CONSTANTE_NUMERICA = 1;
 
 	private final RepositorioCompra repositorioCompra;
 

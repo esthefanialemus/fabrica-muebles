@@ -22,7 +22,6 @@ public class ConsultaControladorProducto {
     @GetMapping
     @ApiOperation("Listar Productos")
     public List<DtoProducto> listar() {
-        System.out.println( this.manejadorListarProducto.ejecutar());
         return this.manejadorListarProducto.ejecutar();
 
     }

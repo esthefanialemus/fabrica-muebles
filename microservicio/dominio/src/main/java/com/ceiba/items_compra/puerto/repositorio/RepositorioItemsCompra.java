@@ -6,17 +6,17 @@ public interface RepositorioItemsCompra {
     /**
      * Permite crear un ItemsCompra
      *
-     * @param ItemsCompra
+     * @param itemsCompra
      * @return el id generado
      */
-    Long crear(ItemsCompra ItemsCompra);
+    Long crear(ItemsCompra itemsCompra);
 
     /**
      * Permite actualizar un ItemsCompra
      *
-     * @param ItemsCompra
+     * @param itemsCompra
      */
-    void actualizar(ItemsCompra ItemsCompra);
+    void actualizar(ItemsCompra itemsCompra);
 
     /**
      * Permite eliminar un ItemsCompra
