@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/producto")
 @Api(tags = {"Controlador consulta producto"})
 public class ConsultaControladorProducto {
 
@@ -22,7 +22,9 @@ public class ConsultaControladorProducto {
     @GetMapping
     @ApiOperation("Listar Productos")
     public List<DtoProducto> listar() {
+        System.out.println( this.manejadorListarProducto.ejecutar());
         return this.manejadorListarProducto.ejecutar();
+
     }
 
 

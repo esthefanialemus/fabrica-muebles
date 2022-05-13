@@ -46,6 +46,11 @@ public class CompraTestDataBuilder {
         return this;
     }
 
+    public CompraTestDataBuilder verificarHorarioDeAtencion(LocalDateTime fechaCompra){
+        this.fechaCompra=fechaCompra;
+        return this;
+    }
+
 
     public Compra build (){
         return new Compra(id,idCliente,total,fechaCompra,fechaEntrega,fechaDespacho);

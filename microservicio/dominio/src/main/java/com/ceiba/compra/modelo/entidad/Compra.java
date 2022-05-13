@@ -1,5 +1,6 @@
 package com.ceiba.compra.modelo.entidad;
 
+import com.ceiba.dominio.excepcion.ExcepcionHorario;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +18,11 @@ public class Compra {
     private static final String SE_DEBE_INGRESAR_EL_PRECIO_TOTAL_COMPRA = "Se debe ingresar el precio total de la compra";
     private static final String SE_DEBE_INGRESAR_EL_CLIENTE = "Se debe ingresar el cliente a la compra";
 
+    private static final String LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION = "la Compra no se puede realizar fuera de nuestro horario de atencion";
 
+
+    private static final int HORA_ENTRADA = 8 ;
+    private static final int HORA_SALIDA = 19 ;
     private Long id;
     private Long idCliente;
     private Double total;
@@ -32,6 +37,7 @@ public class Compra {
         validarObligatorio(fechaCompra, SE_DEBE_INGRESAR_LA_FECHA_COMPRA);
         validarObligatorio(fechaEntrega, SE_DEBE_INGRESAR_LA_FECHA_ENTREGA);
         validarObligatorio(fechaDespacho, SE_DEBE_INGRESAR_LA_FECHA_DESPACHO);
+        validarHorarioHabil(fechaCompra,LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION);
 
         this.id = id;
         this.idCliente = idCliente;
@@ -39,5 +45,12 @@ public class Compra {
         this.fechaCompra = fechaCompra;
         this.fechaEntrega = fechaEntrega;
         this.fechaDespacho = fechaDespacho;
+    }
+
+    private void validarHorarioHabil(LocalDateTime fechaCompra ,String msj) {
+
+        if(fechaCompra.getHour() < HORA_ENTRADA || fechaCompra.getHour() > HORA_SALIDA ){
+            throw new ExcepcionHorario(LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION);
+        }
     }
 }

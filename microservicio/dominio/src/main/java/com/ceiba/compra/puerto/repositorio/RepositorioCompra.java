@@ -37,17 +37,6 @@ public interface RepositorioCompra {
 	boolean existe(LocalDateTime fechaCompra, Long idCliente);
 	
 	
-	/**
-	 * Permite validar si existe una compra con la fecha de compra, clienterelacionados
-	 * 
-	 * @param id
-	 * @param fechaCompra
-	 * @param idCliente
-	 * @return si existe o no
-	 */
-	boolean existeExcluyendoId(Long id, LocalDateTime fechaCompra, Long idCliente);
-
-
 
 
 	/**
@@ -55,4 +44,6 @@ public interface RepositorioCompra {
 	 * @param compra
 	 */
     void cancelarCompra(Compra compra);
+
+
 }

@@ -5,6 +5,7 @@ import com.ceiba.compra.modelo.entidad.Compra;
 import com.ceiba.compra.puerto.repositorio.RepositorioCompra;
 import com.ceiba.compra.servicio.testdatabuilder.CompraTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
+import com.ceiba.dominio.excepcion.ExcepcionHorario;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -46,6 +47,8 @@ class ServicioCrearCompraTest {
         assertEquals(1L,idCompra);
         Mockito.verify(repositorioCompra, Mockito.times(1)).crear(compra);
     }
+
+
 
 
 

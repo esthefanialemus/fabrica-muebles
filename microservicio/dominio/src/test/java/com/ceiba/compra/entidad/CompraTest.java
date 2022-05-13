@@ -3,11 +3,14 @@ package com.ceiba.compra.entidad;
 import com.ceiba.BasePrueba;
 import com.ceiba.compra.modelo.entidad.Compra;
 import com.ceiba.compra.servicio.testdatabuilder.CompraTestDataBuilder;
+import com.ceiba.dominio.excepcion.ExcepcionHorario;
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -77,6 +80,7 @@ class CompraTest {
 
     }
 
+
     @Test
     void deberiaFallarSinFechaEntrega() {
         CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().validarFechaEntrega(null);
@@ -85,6 +89,19 @@ class CompraTest {
 
                 },
                 ExcepcionValorObligatorio.class, "Se debe ingresar la fecha entrega de entrega");
+
+    }
+
+    @Test
+    @DisplayName("Deberia fallar fuera del horario habil")
+    void deberiaFallarFueraDelHoraioHabil() {
+        LocalDateTime fecha = LocalDateTime.parse("2022-05-14T22:12:43");
+        CompraTestDataBuilder compraTestDataBuilder = new CompraTestDataBuilder().verificarHorarioDeAtencion(fecha);
+        BasePrueba.assertThrows(() -> {
+                    compraTestDataBuilder.build();
+
+                },
+                ExcepcionHorario.class, "la Compra no se puede realizar fuera de nuestro horario de atencion");
 
     }
 

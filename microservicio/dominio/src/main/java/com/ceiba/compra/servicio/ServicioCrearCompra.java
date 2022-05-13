@@ -13,18 +13,12 @@ public class ServicioCrearCompra {
 
 	private static final String LA_COMPRA_YA_EXISTE_EN_EL_SISTEMA = "la Compra ya existe en el sistema";
 
-	private static final String LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION = "la Compra no se puede realizar fuera de nuestro horario de atencion";
-
 	private static final Double LA_COMPRA_ES_CERO = 0.0 ;
 
-
-	private static final Double PORCENTAJE_INSTALACIÓN_COMEDOR = 0.10 ;
 
 	private static final int CANTIDAD_DIAS_DESPACHO_COMPRA = 3 ;
 	private static final Double RECARGO_FIN_DE_SEMANA = 0.24 ;
 
-	private static final int HORA_ENTRADA = 8 ;
-	private static final int HORA_SALIDA = 19 ;
 
 	private static final int DIAS_MINIMOS_FECHAS = 5;
 	private static final int DIAS_MAXIMOS_FECHAS = 8;
@@ -39,7 +33,6 @@ public class ServicioCrearCompra {
 
 	public Long ejecutar(Compra compra) {
 		validarExistenciaPrevia(compra);
-		validarHorarioHabil(compra);
 		if(verificarFinDeSemana(compra)){
 			asignarRecargoFinDeSemana(compra);
 
@@ -72,12 +65,7 @@ public class ServicioCrearCompra {
 		}
 
 	}
-	private void validarHorarioHabil(Compra compra ) {
 
-		if(compra.getFechaCompra().getHour() < HORA_ENTRADA || compra.getFechaCompra().getHour() > HORA_SALIDA ){
-			throw new ExcepcionHorario(LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION);
-		}
-	}
 
 	private void asignarFechaEntrega(Compra compra) {
 		int cantidadDias = obtenerDiasFechaRandom();
