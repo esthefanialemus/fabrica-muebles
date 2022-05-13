@@ -66,15 +66,7 @@ public class RepositorioCompraMysql implements RepositorioCompra {
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCompra,paramSource, Boolean.class);
 	}
 
-	@Override
-	public boolean existeExcluyendoId(Long id, LocalDateTime fechaCompra, Long idCliente) {
-		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", id);
-        paramSource.addValue("fechaCompra", fechaCompra);
-        paramSource.addValue("idCliente", idCliente);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCompraExcluyendoId,paramSource, Boolean.class);
-	}
 
 	@Override
 	public void cancelarCompra(Compra compra) {
