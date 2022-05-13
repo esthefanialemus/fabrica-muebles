@@ -21,6 +21,10 @@ public class CompraTestDataBuilder {
        fechaEntrega=LocalDateTime.now().plusDays(7);
     }
 
+    public CompraTestDataBuilder validarId(Long id){
+        this.id=id;
+        return this;
+    }
     public CompraTestDataBuilder validarCliente(Long idCliente){
         this.idCliente=idCliente;
         return this;

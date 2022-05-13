@@ -20,7 +20,7 @@ class CompraTest {
     @DisplayName("Deberia crear correctamente la compra")
     void deberiaCrearcorrectamenteLaCompra() {
         LocalDateTime fechaCompra = LocalDateTime.now();
-        LocalDateTime despachoCompra = LocalDateTime.now().plusDays(4);
+        LocalDateTime despachoCompra = LocalDateTime.now().plusDays(3);
         LocalDateTime entregaCompra = LocalDateTime.now().plusDays(4);
         Compra compra = new CompraTestDataBuilder().validarFechaCompra(fechaCompra).validarFechaDespacho(despachoCompra).validarFechaEntrega(entregaCompra).build();
         assertEquals(2L, compra.getId());

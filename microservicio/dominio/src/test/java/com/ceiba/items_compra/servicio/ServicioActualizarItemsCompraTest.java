@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ServicioActualizarItemsCompraTest {
 
     @Test
-    @DisplayName("Deberia actualizar el item de la compra")
-    void deberiaActualizarElItemDeLaCompra(){
+    @DisplayName("Deberia validar la existencia previa de la Reserva")
+    void deberiaValidarExistenciaPreviaDelItem(){
 
         // arrange
         ItemsCompra itemsCompra = new ItemTestDataBuilder().validarIdCompraItem(123L).build();
@@ -26,8 +26,6 @@ class ServicioActualizarItemsCompraTest {
         // act - assert
         BasePrueba.assertThrows(() -> servicioActualizarItemsCompra.ejecutar(itemsCompra), ExcepcionDuplicidad.class,"Estos Items de Compra ya existe en el sistema");
     }
-
-
 
 
 

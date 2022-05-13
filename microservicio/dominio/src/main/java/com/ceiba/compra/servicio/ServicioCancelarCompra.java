@@ -9,14 +9,12 @@ import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDateTime;
 
 public class ServicioCancelarCompra {
 
 	private static final String LA_COMPRA_NO_SE_PUEDE_CANCELAR = "La Compra solo puede ser cancelada antes de la fecha de despacho";
 
-	private static final String LA_COMPRA_YA_EXISTE_EN_EL_SISTEMA = "La Compra ya existe en el sistema";
-
-	private static final Double PORCENTAJE_MULTA_CANCELACION_COMPRA = 0.15;
 
 	private final DaoCompra daoCompra;
 
@@ -30,33 +28,27 @@ public class ServicioCancelarCompra {
 
 
 	public void ejecutar(Compra compra) {
-		DtoCompra dtoCompra = daoCompra.listarCompraPorId(compra.getId());
 
-		validarExistenciaPrevia(compra);
-		validarCancelacionCompra( dtoCompra.getFechaDespacho(),  dtoCompra.getFechaEntrega());
-		cancelarCompra(compra);
+
+
+		validarCancelacionCompra(compra.getId());
 		this.repositorioCompra.cancelarCompra(compra);
 	}
 
 
 
-	private void validarExistenciaPrevia(Compra compra) {
-		boolean existe = this.repositorioCompra.existe(compra.getFechaCompra(),compra.getIdCliente());
-		if(existe) {
-			throw new ExcepcionDuplicidad(LA_COMPRA_YA_EXISTE_EN_EL_SISTEMA);
-		}
-	}
 
-	private void validarCancelacionCompra(LocalDateTime fechaDespacho, LocalDateTime fechaEntrega) {
+
+	private void validarCancelacionCompra(Long id) {
+		DtoCompra dtoCompra =  this.daoCompra.listarCompraPorId(id);
 
 		LocalDate fechaActual= LocalDate.now();
 
-		if(( fechaActual.isEqual(fechaDespacho.toLocalDate()) || fechaActual.isAfter(fechaDespacho.toLocalDate())  ) && fechaActual.isBefore(fechaEntrega.toLocalDate()) ){
-				throw new ExcepcionCancelacion(LA_COMPRA_NO_SE_PUEDE_CANCELAR);
+		if(fechaActual.isBefore(dtoCompra.getFechaDespacho().toLocalDate())){
+			throw new ExcepcionCancelacion(LA_COMPRA_NO_SE_PUEDE_CANCELAR);
 		}
+
 	}
 
-	private void cancelarCompra(Compra compra) {
-		compra.setTotal(compra.getTotal()* PORCENTAJE_MULTA_CANCELACION_COMPRA);
-	}
+
 }

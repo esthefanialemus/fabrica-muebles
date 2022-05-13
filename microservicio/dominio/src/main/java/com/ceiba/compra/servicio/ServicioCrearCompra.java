@@ -33,11 +33,7 @@ public class ServicioCrearCompra {
 
 	public Long ejecutar(Compra compra) {
 		validarExistenciaPrevia(compra);
-		if(verificarFinDeSemana(compra)){
-			asignarRecargoFinDeSemana(compra);
 
-		}
-		asignarFechaEntrega(compra);
 		return this.repositorioCompra.crear(compra);
 	}
 
@@ -50,32 +46,6 @@ public class ServicioCrearCompra {
 
 
 
-	private boolean verificarFinDeSemana(Compra compra) {
-
-		Calendar fechaCompraCalendar = Calendar.getInstance();
-		fechaCompraCalendar.setTime(Date.from(compra.getFechaCompra().toLocalDate().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
-		return fechaCompraCalendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || fechaCompraCalendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY ;
-
-	}
-
-
-	private void asignarRecargoFinDeSemana(Compra compra) {
-		if ( compra.getTotal().equals(LA_COMPRA_ES_CERO)) {
-			compra.setTotal(compra.getTotal() + (compra.getTotal() * RECARGO_FIN_DE_SEMANA));
-		}
-
-	}
-
-
-	private void asignarFechaEntrega(Compra compra) {
-		int cantidadDias = obtenerDiasFechaRandom();
-		compra.setFechaEntrega(compra.getFechaCompra().plusDays(cantidadDias));
-		compra.setFechaDespacho(compra.getFechaCompra().plusDays(cantidadDias+CANTIDAD_DIAS_DESPACHO_COMPRA));
-	}
-
-	private int obtenerDiasFechaRandom() {
-		return (int)Math.floor(Math.random()*(DIAS_MAXIMOS_FECHAS - DIAS_MINIMOS_FECHAS +CONSTANTE_NUMERICA)+ DIAS_MINIMOS_FECHAS);
-	}
 
 
 }

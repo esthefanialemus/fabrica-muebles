@@ -30,6 +30,21 @@ class ServicioActualizarCompraTest {
         BasePrueba.assertThrows(() -> servicioActualizarCompra.ejecutar(compra), ExcepcionDuplicidad.class,"La Compra ya existe en el sistema");
     }
 
+    @Test
+    @DisplayName("Deberia actualizar correctamente en el repositorio")
+    void deberiaActualizarCorrectamenteEnElRepositorio() {
+
+        LocalDateTime fecha = LocalDateTime.parse("2022-05-26T17:12:43");
+
+        Compra compra = new CompraTestDataBuilder().validarId(2L).validarFechaCompra(fecha).build();
+        RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);
+        Mockito.when(repositorioCompra.existe(fecha,2L)).thenReturn(true);
+        ServicioActualizarCompra servicioActualizarCompra = new ServicioActualizarCompra(repositorioCompra);
+
+        servicioActualizarCompra.ejecutar(compra);
+
+        Mockito.verify(repositorioCompra, Mockito.times(1)).actualizar(compra);
+    }
 
 
 
