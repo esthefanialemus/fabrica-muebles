@@ -59,8 +59,7 @@ public class Compra {
     private void validarHorarioHabil(LocalDateTime fechaCompra, String msj) {
 
         if(fechaCompra.getHour() < HORA_ENTRADA || fechaCompra.getHour() > HORA_SALIDA ){
-            msj=LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION;
-            throw new ExcepcionHorario(msj);
+            throw new ExcepcionHorario(LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION);
         }
     }
 
