@@ -2,17 +2,13 @@ package com.ceiba.compra.modelo.entidad;
 
 import com.ceiba.dominio.excepcion.ExcepcionHorario;
 import lombok.Getter;
-import lombok.Setter;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Calendar;
-import java.util.Date;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
-@Setter
 public class Compra {
 
     private static final String SE_DEBE_INGRESAR_LA_FECHA_COMPRA = "Se debe ingresar la fecha de compra";
@@ -22,6 +18,8 @@ public class Compra {
     private static final String SE_DEBE_INGRESAR_EL_CLIENTE = "Se debe ingresar el cliente a la compra";
 
     private static final String LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION = "la Compra no se puede realizar fuera de nuestro horario de atencion";
+
+
 
 
     private static final Double LA_COMPRA_ES_CERO = 0.0 ;
@@ -58,7 +56,7 @@ public class Compra {
         this.fechaDespacho = asignarFechaDespacho(fechaCompra);
     }
 
-    private void validarHorarioHabil(LocalDateTime fechaCompra ,String msj) {
+    private void validarHorarioHabil(LocalDateTime fechaCompra, String msj) {
 
         if(fechaCompra.getHour() < HORA_ENTRADA || fechaCompra.getHour() > HORA_SALIDA ){
             throw new ExcepcionHorario(LA_COMPRA_NO_SE_REALIZA_FUERA_DE_HORARIO_DE_ATENCION);
@@ -66,22 +64,29 @@ public class Compra {
     }
 
     private double asignarValorTotal(LocalDateTime fechaCompra, Double total){
-        return asignarRecargoFinDeSemana(fechaCompra,total);
-    }
-
-    private boolean verificarFinDeSemana(LocalDateTime fechaCompra) {
-
-        Calendar fechaCompraCalendar = Calendar.getInstance();
-        fechaCompraCalendar.setTime(Date.from(fechaCompra.toLocalDate().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
-        return fechaCompraCalendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || fechaCompraCalendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY ;
+        double r=total;
+        if(total==0){
+            r= asignarRecargoFinDeSemana(fechaCompra,total);
+        }
+        return r;
 
     }
 
-    private double asignarRecargoFinDeSemana(LocalDateTime fechaCompra, Double total) {
+    public static boolean verificarFinDeSemana(LocalDateTime fechaCompra) {
 
-        double valorTotal= total;
-        if (total.equals(LA_COMPRA_ES_CERO) && verificarFinDeSemana(fechaCompra)) {
-           valorTotal +=  (total * RECARGO_FIN_DE_SEMANA);
+        boolean esFinde=false;
+        if(fechaCompra.getDayOfWeek().equals(DayOfWeek.SUNDAY) || fechaCompra.getDayOfWeek().equals(DayOfWeek.SATURDAY)){
+            esFinde=true;
+        }
+      return esFinde;
+
+    }
+
+    public static double asignarRecargoFinDeSemana(LocalDateTime fechaCompra, Double total) {
+
+        double valorTotal= 0;
+        if ( verificarFinDeSemana(fechaCompra)) {
+           valorTotal =  total * RECARGO_FIN_DE_SEMANA;
         }
         return valorTotal;
 

@@ -105,5 +105,41 @@ class CompraTest {
 
     }
 
+  
+    @Test
+    @DisplayName("Deberia alertar si es fin de semana la compra")
+
+    void deberiaValidarSiEsFinDeSemana(){
+        LocalDateTime fecha = LocalDateTime.parse("2022-05-14T10:12:43");
+        //Arrange
+        Compra compra = new CompraTestDataBuilder().validarId(1L).validarCliente(1L).validarTotalCompra(100.000).validarFechaCompra(fecha).validarFechaEntrega(fecha.plusDays(6)).validarFechaDespacho(fecha.plusDays(3)).build();
+        assertEquals(true,compra.verificarFinDeSemana(compra.getFechaCompra()));
+        //act-assert
+    }
+    @Test
+    @DisplayName("Deberia cuando no es fin de semana la compra")
+
+    void deberiaValidarNoFinDeSemana(){
+        LocalDateTime fecha = LocalDateTime.parse("2022-05-13T10:12:43");
+        //Arrange
+        Compra compra = new CompraTestDataBuilder().validarId(1L).validarCliente(1L).validarTotalCompra(100.000).validarFechaCompra(fecha).validarFechaEntrega(fecha.plusDays(6)).validarFechaDespacho(fecha.plusDays(3)).build();
+        assertEquals(false,compra.verificarFinDeSemana(compra.getFechaCompra()));
+        //act-assert
+    }
+
+
+
+    @Test
+    @DisplayName("Deberia alertar si es fin de semana la compra")
+
+    void validarRecargoFinde(){
+        LocalDateTime fecha = LocalDateTime.parse("2022-05-14T10:12:43");
+        //Arrange
+        Compra compra = new CompraTestDataBuilder().validarId(1L).validarCliente(1L).validarTotalCompra(100.000).validarFechaCompra(fecha).validarFechaEntrega(fecha.plusDays(6)).validarFechaDespacho(fecha.plusDays(3)).build();
+        assertEquals(24.000,Compra.asignarRecargoFinDeSemana(compra.getFechaCompra(),compra.getTotal()));
+        //act-assert
+    }
+
+
 
 }
