@@ -39,7 +39,8 @@ public class ComandoControladorClienteTest  {
         mocMvc.perform(post("/cliente")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(comandoCliente)))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'valor': 3}"));
     }
 
     @Test
@@ -61,7 +62,7 @@ public class ComandoControladorClienteTest  {
         ComandoCliente comandoCliente = new ComandoClienteTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/cliente/{id}", 1L)
+        mocMvc.perform(put("/cliente/{id}", 3L)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());

@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClienteTest {
 
     @Test
-    @DisplayName("Deberia crear  correctamente al cliente")
+    @DisplayName("Deberia crear  de forma correcta al cliente")
     void deberiaCrearCorrectamenteElCliente(){
         Cliente cliente = new ClienteTestDataBuilder().build();
         assertEquals(15684L,cliente.getId());
@@ -71,17 +71,6 @@ class ClienteTest {
 
     }
 
-    @Test
-    @DisplayName("Deberia fallar la creacion sin el fecha de creacion del cliente")
-    void deberiaFallarSinFechaCreacion(){
-        ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().validarFechaCreacion(null);
-        BasePrueba.assertThrows(() -> {
-                    clienteTestDataBuilder.build();
-
-                },
-                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de creación");
-
-    }
 
 
 

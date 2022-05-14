@@ -20,7 +20,7 @@ class ServicioCrearCompraTest {
     @DisplayName("Deberia lanzar una excepcion cuando la compra ya exista")
     void deberiaValidarExistenciaPreviaDeLaCompra(){
 
-        LocalDateTime fecha =LocalDateTime.parse("2022-05-18T09:12:43");
+        LocalDateTime fecha =LocalDateTime.parse("2022-05-13T10:12:43.411");
         // arrange
         Compra compra = new CompraTestDataBuilder().build();
         RepositorioCompra repositorioCompra = Mockito.mock(RepositorioCompra.class);

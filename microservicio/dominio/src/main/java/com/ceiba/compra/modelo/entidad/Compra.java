@@ -29,9 +29,9 @@ public class Compra {
     private static final int HORA_ENTRADA = 8 ;
     private static final int HORA_SALIDA = 19 ;
 
-    private static final int CANTIDAD_DIAS_DESPACHO = 3;
+    private static final int CANTIDAD_DIAS_DESPACHO = 4;
 
-    private static final int CANTIDAD_DIAS_ENTREGA = 4;
+    private static final int CANTIDAD_DIAS_ENTREGA = 7;
     private Long id;
     private Long idCliente;
     private Double total;

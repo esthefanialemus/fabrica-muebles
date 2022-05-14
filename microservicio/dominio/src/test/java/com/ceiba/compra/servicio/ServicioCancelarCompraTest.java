@@ -22,7 +22,7 @@ class ServicioCancelarCompraTest {
     @DisplayName("Deberia cancelar la compra")
     void deberiaCancelarLaCompra() {
 
-        LocalDateTime fechaCompra = LocalDateTime.now();
+        LocalDateTime fechaCompra = LocalDateTime.parse("2022-05-13T10:12:43.411");
         LocalDateTime fechaDespacho = LocalDateTime.parse("2022-05-10T09:12:43");
         LocalDateTime fechaEntrega = LocalDateTime.parse("2022-05-23T09:12:43");
 
@@ -46,7 +46,7 @@ class ServicioCancelarCompraTest {
     @DisplayName("Deberia lanzar una exepcion cuando se valida la fecha de cancelacion")
     void deberiaLanzarUnaExepcionCuandoSeValidaLaFechaDeCancelacion() {
 
-        LocalDateTime fechaCompra = LocalDateTime.now().plusDays(-1);
+        LocalDateTime fechaCompra = LocalDateTime.parse("2022-05-13T10:12:43.411");
         LocalDateTime fechaDespacho = LocalDateTime.parse("2022-05-15T09:12:43");
         LocalDateTime fechaEntrega = LocalDateTime.parse("2022-05-10T09:12:43");
 

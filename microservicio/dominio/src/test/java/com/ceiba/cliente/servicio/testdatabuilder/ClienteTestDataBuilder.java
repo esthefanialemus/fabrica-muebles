@@ -11,7 +11,7 @@ public class ClienteTestDataBuilder {
     private String apellido;
     private String identificacion;
     private String email;
-    private LocalDateTime fechaCreacion;
+
 
     public ClienteTestDataBuilder() {
           id= 15684L;
@@ -19,7 +19,7 @@ public class ClienteTestDataBuilder {
           apellido="Preciado";
           identificacion="1094972643";
           email="l@gmail.com";
-          fechaCreacion=LocalDateTime.now();
+
     }
 
     public ClienteTestDataBuilder validarNombre(String nombre){
@@ -50,15 +50,10 @@ public class ClienteTestDataBuilder {
         return this;
     }
 
-    public ClienteTestDataBuilder validarFechaCreacion(LocalDateTime fechaCreacion){
-        this.fechaCreacion=fechaCreacion;
-        return this;
-    }
-
 
 
     public Cliente build (){
-        return new Cliente(id,nombre,apellido,identificacion,email,fechaCreacion);
+        return new Cliente(id,nombre,apellido,identificacion,email);
     }
 
 

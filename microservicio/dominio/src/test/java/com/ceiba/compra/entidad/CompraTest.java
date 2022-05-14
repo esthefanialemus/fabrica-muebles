@@ -17,18 +17,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CompraTest {
 
     @Test
-    @DisplayName("Deberia crear correctamente la compra")
+    @DisplayName("Deberia crear de forma correcta la compra")
     void deberiaCrearcorrectamenteLaCompra() {
-        LocalDateTime fechaCompra = LocalDateTime.now();
-        LocalDateTime despachoCompra = LocalDateTime.now().plusDays(3);
-        LocalDateTime entregaCompra = LocalDateTime.now().plusDays(4);
-        Compra compra = new CompraTestDataBuilder().validarFechaCompra(fechaCompra).validarFechaDespacho(despachoCompra).validarFechaEntrega(entregaCompra).build();
+        LocalDateTime fechaCompra = LocalDateTime.parse("2022-05-13T10:12:43.411");
+        LocalDateTime fechaDespacho=LocalDateTime.parse("2022-05-17T10:12:43.411");
+        LocalDateTime fechaEntrega = LocalDateTime.parse("2022-05-20T10:12:43.411");
+
+        Compra compra = new CompraTestDataBuilder().validarFechaCompra(fechaCompra).validarFechaDespacho(fechaDespacho).validarFechaEntrega(fechaEntrega).build();
+
         assertEquals(2L, compra.getId());
         assertEquals(1L, compra.getIdCliente());
         assertEquals(800.000, compra.getTotal());
         assertEquals(fechaCompra, compra.getFechaCompra());
-        assertEquals(despachoCompra, compra.getFechaDespacho());
-        assertEquals(entregaCompra, compra.getFechaEntrega());
+        assertEquals(fechaDespacho, compra.getFechaDespacho());
+        assertEquals(fechaEntrega, compra.getFechaEntrega());
     }
 
     @Test
@@ -137,6 +139,32 @@ class CompraTest {
         //Arrange
         Compra compra = new CompraTestDataBuilder().validarId(1L).validarCliente(1L).validarTotalCompra(100.000).validarFechaCompra(fecha).validarFechaEntrega(fecha.plusDays(6)).validarFechaDespacho(fecha.plusDays(3)).build();
         assertEquals(24.000,Compra.asignarRecargoFinDeSemana(compra.getFechaCompra(),compra.getTotal()));
+        //act-assert
+    }
+
+    @Test
+    @DisplayName("Deberia alertar si la compra no es cero")
+
+    void validarCompraCero(){
+
+        LocalDateTime fecha = LocalDateTime.parse("2022-05-13T10:12:43.411");
+        //Arrange
+        Compra compra = new CompraTestDataBuilder().validarCompraCero(0.0).validarTotalCompra(0.0).validarFechaCompra(fecha).build();
+        assertEquals(0.0,Compra.asignarRecargoFinDeSemana(compra.getFechaCompra(),compra.getTotal()));
+        //act-assert
+    }
+
+    @Test
+    @DisplayName("Deberia alertar cuando la compra no es un fin de semana")
+
+    void validarCompraNoFinde(){
+
+        //Arrange
+        LocalDateTime fecha = LocalDateTime.parse("2022-05-13T10:12:43.411");
+
+        Compra compra = new CompraTestDataBuilder().validarId(1L).validarCliente(1L).validarTotalCompra(100.000).validarFechaCompra(fecha).validarFechaEntrega(fecha.plusDays(6)).validarFechaDespacho(fecha.plusDays(3)).build();
+
+        assertEquals(0.0,Compra.asignarRecargoFinDeSemana(compra.getFechaCompra(),compra.getTotal()));
         //act-assert
     }
 

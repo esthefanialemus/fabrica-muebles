@@ -18,23 +18,24 @@ import io.swagger.annotations.ApiOperation;
 public class
 ComandoControladorCliente {
 
+    private final ManejadorCrearCliente manejadorCrearCliente;
     private final ManejadorEliminarCliente manejadorEliminarCliente;
     private final ManejadorActualizarCliente manejadorActualizarCliente;
 
     @Autowired
-    public ComandoControladorCliente(
+    public ComandoControladorCliente(ManejadorCrearCliente manejadorCrearCliente,
                                      ManejadorEliminarCliente manejadorEliminarCliente,
                                      ManejadorActualizarCliente manejadorActualizarCliente) {
 
-
+        this.manejadorCrearCliente = manejadorCrearCliente;
         this.manejadorEliminarCliente = manejadorEliminarCliente;
         this.manejadorActualizarCliente = manejadorActualizarCliente;
     }
 
     @PostMapping
     @ApiOperation("Crear cliente")
-    public void crear(@RequestBody ComandoCliente comandoCompra) {
-
+    public ComandoRespuesta<Long> crear(@RequestBody ComandoCliente comandoCliente) {
+       return manejadorCrearCliente.ejecutar(comandoCliente);
 
     }
 

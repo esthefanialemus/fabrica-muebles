@@ -13,5 +13,5 @@ public class DtoCliente {
     private String apellido;
     private String identificacion;
     private String email;
-    private LocalDateTime fechaCreacion;
+
 }

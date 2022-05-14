@@ -1,2 +1,2 @@
-insert into cliente ( nombre, apellido, identificacion, email,fechaCreacion)
-values ( :nombre, :apellido, :identificacion, :email, :fechaCreacion)
+insert into cliente ( nombre, apellido, identificacion, email)
+values ( :nombre, :apellido, :identificacion, :email)

@@ -16,9 +16,9 @@ public class CompraTestDataBuilder {
        id=2L;
        idCliente=1L;
         total=800.000;
-       fechaCompra = LocalDateTime.parse("2022-05-18T09:12:43");
-       fechaDespacho=LocalDateTime.now().plusDays(4);
-       fechaEntrega=LocalDateTime.now().plusDays(7);
+       fechaCompra = LocalDateTime.parse("2022-05-13T10:12:43.411");
+       fechaDespacho=LocalDateTime.parse("2022-05-17T10:12:43.411");
+       fechaEntrega=LocalDateTime.parse("2022-05-20T10:12:43.411");
     }
 
     public CompraTestDataBuilder validarId(Long id){
@@ -55,8 +55,8 @@ public class CompraTestDataBuilder {
         return this;
     }
 
-    public CompraTestDataBuilder validarFinDeSemana(LocalDateTime fechaCompra){
-        this.fechaCompra=fechaCompra;
+    public CompraTestDataBuilder validarCompraCero(Double total){
+        this.total=total;
         return this;
     }
 
