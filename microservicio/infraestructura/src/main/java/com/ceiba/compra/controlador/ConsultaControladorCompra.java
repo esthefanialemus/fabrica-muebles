@@ -18,21 +18,15 @@ import java.util.List;
 public class ConsultaControladorCompra {
 
 	private final ManejadorListarCompra manejadorListarCompra;
-    private final ManejadorObtenerCompra manejadorObtenerCompra;
 
-    public ConsultaControladorCompra(ManejadorListarCompra manejadorListarCompra, ManejadorObtenerCompra manejadorObtenerCompra) {
+
+    public ConsultaControladorCompra(ManejadorListarCompra manejadorListarCompra) {
         this.manejadorListarCompra = manejadorListarCompra;
-        this.manejadorObtenerCompra = manejadorObtenerCompra;
+
 
     }
     
-    @GetMapping(value = "/{id}")
-    @ApiOperation("Obtener compra")
-    public DtoCompra obtener(@PathVariable Long id) {
-    	return this.manejadorObtenerCompra.ejecutar(id);
-    }
-    
-   
+
     @GetMapping
     @ApiOperation("Listar compra")
     public List<DtoCompra> listar() {
