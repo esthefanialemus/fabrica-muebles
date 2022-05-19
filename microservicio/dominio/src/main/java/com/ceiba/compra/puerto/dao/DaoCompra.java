@@ -1,7 +1,6 @@
 package com.ceiba.compra.puerto.dao;
 
 import com.ceiba.compra.modelo.dto.DtoCompra;
-import com.ceiba.items_compra.modelo.dto.DtoItemsCompraConsulta;
 
 import java.util.List;
 
