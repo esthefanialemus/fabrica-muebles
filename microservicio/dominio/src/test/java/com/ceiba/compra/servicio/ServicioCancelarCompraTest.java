@@ -46,9 +46,9 @@ class ServicioCancelarCompraTest {
     @DisplayName("Deberia lanzar una exepcion cuando se valida la fecha de cancelacion")
     void deberiaLanzarUnaExepcionCuandoSeValidaLaFechaDeCancelacion() {
 
-        LocalDateTime fechaCompra = LocalDateTime.parse("2022-05-13T10:12:43.411");
-        LocalDateTime fechaDespacho = LocalDateTime.parse("2022-05-15T09:12:43");
-        LocalDateTime fechaEntrega = LocalDateTime.parse("2022-05-10T09:12:43");
+        LocalDateTime fechaCompra = LocalDateTime.parse("2022-05-25T10:12:43.411");
+        LocalDateTime fechaDespacho = LocalDateTime.parse("2022-05-28T09:12:43");
+        LocalDateTime fechaEntrega = LocalDateTime.parse("2022-06-02T09:12:43");
 
         DtoCompra dtoCompra = new DtoCompra(1L, 1L, 100.000, fechaCompra, fechaEntrega, fechaDespacho);
 
